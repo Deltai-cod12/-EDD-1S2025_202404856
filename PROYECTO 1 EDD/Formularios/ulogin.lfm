@@ -1,0 +1,77 @@
+object frmLogin: TfrmLogin
+  Left = 0
+  Top = 0
+  Caption = 'EDDMail - Login'
+  ClientHeight = 300
+  ClientWidth = 400
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 120
+    Top = 40
+    Width = 150
+    Height = 23
+    Caption = 'EDDMAIL SYSTEM'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 80
+    Top = 100
+    Width = 40
+    Height = 13
+    Caption = 'Usuario:'
+  end
+  object Label3: TLabel
+    Left = 80
+    Top = 140
+    Width = 60
+    Height = 13
+    Caption = 'Contrase'#241'a:'
+  end
+  object edtUsuario: TEdit
+    Left = 150
+    Top = 97
+    Width = 150
+    Height = 21
+    TabOrder = 0
+  end
+  object edtPassword: TEdit
+    Left = 150
+    Top = 137
+    Width = 150
+    Height = 21
+    PasswordChar = '*'
+    TabOrder = 1
+  end
+  object btnLogin: TButton
+    Left = 100
+    Top = 200
+    Width = 90
+    Height = 30
+    Caption = 'Iniciar Sesión'
+    TabOrder = 2
+    OnClick = btnLoginClick
+  end
+  object btnRegistrar: TButton
+    Left = 210
+    Top = 200
+    Width = 90
+    Height = 30
+    Caption = 'Registrar'
+    TabOrder = 3
+    OnClick = btnRegistrarClick
+  end
+end

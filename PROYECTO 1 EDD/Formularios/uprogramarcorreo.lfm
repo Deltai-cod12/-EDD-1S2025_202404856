@@ -1,0 +1,159 @@
+object frmProgramarCorreo: TfrmProgramarCorreo
+  Left = 0
+  Top = 0
+  Caption = 'Programar Correo'
+  ClientHeight = 550
+  ClientWidth = 600
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 20
+    Top = 20
+    Width = 32
+    Height = 13
+    Caption = 'Para:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 20
+    Top = 60
+    Width = 40
+    Height = 13
+    Caption = 'Asunto:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 20
+    Top = 100
+    Width = 50
+    Height = 13
+    Caption = 'Mensaje:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 20
+    Top = 320
+    Width = 120
+    Height = 13
+    Caption = 'Programar envío para:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 40
+    Top = 350
+    Width = 90
+    Height = 13
+    Caption = 'Fecha (dd/mm/aaaa):'
+  end
+  object Label6: TLabel
+    Left = 40
+    Top = 380
+    Width = 60
+    Height = 13
+    Caption = 'Hora (hh:nn):'
+  end
+  object cbDestinatario: TComboBox
+    Left = 80
+    Top = 17
+    Width = 400
+    Height = 21
+    ItemHeight = 13
+    TabOrder = 0
+  end
+  object edtAsunto: TEdit
+    Left = 80
+    Top = 57
+    Width = 400
+    Height = 21
+    TabOrder = 1
+  end
+  object MemoMensaje: TMemo
+    Left = 20
+    Top = 120
+    Width = 560
+    Height = 180
+    ScrollBars = ssVertical
+    TabOrder = 2
+  end
+  object edtFecha: TEdit
+    Left = 150
+    Top = 347
+    Width = 100
+    Height = 21
+    TabOrder = 3
+    Text = 'dd/mm/aaaa'
+  end
+  object edtHora: TEdit
+    Left = 150
+    Top = 377
+    Width = 60
+    Height = 21
+    TabOrder = 4
+    Text = 'hh:nn'
+  end
+  object btnProgramar: TButton
+    Left = 350
+    Top = 400
+    Width = 100
+    Height = 30
+    Caption = 'Programar Envío'
+    TabOrder = 5
+    OnClick = btnProgramarClick
+  end
+  object btnCancelar: TButton
+    Left = 460
+    Top = 400
+    Width = 100
+    Height = 30
+    Caption = 'Cancelar'
+    TabOrder = 6
+    OnClick = btnCancelarClick
+  end
+  object btnAgregarContacto: TButton
+    Left = 490
+    Top = 15
+    Width = 100
+    Height = 25
+    Caption = 'Agregar Contacto'
+    TabOrder = 7
+    OnClick = btnAgregarContactoClick
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 531
+    Width = 600
+    Height = 19
+    Panels = <>
+    SimplePanel = True
+  end
+end

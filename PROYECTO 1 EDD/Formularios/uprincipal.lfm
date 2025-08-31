@@ -1,0 +1,100 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 0
+  Top = 0
+  Caption = 'EDDMail - Principal'
+  ClientHeight = 500
+  ClientWidth = 400
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 120
+    Top = 20
+    Width = 150
+    Height = 23
+    Caption = 'MENÚ PRINCIPAL'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblUsuario: TLabel
+    Left = 20
+    Top = 60
+    Width = 40
+    Height = 13
+    Caption = 'Usuario:'
+  end
+  object btnBandejaEntrada: TButton
+    Left = 50
+    Top = 100
+    Width = 300
+    Height = 40
+    Caption = 'Bandeja de Entrada'
+    TabOrder = 0
+    OnClick = btnBandejaEntradaClick
+  end
+  object btnEnviarCorreo: TButton
+    Left = 50
+    Top = 150
+    Width = 300
+    Height = 40
+    Caption = 'Enviar Correo'
+    TabOrder = 1
+    OnClick = btnEnviarCorreoClick
+  end
+  object btnContactos: TButton
+    Left = 50
+    Top = 200
+    Width = 300
+    Height = 40
+    Caption = 'Contactos'
+    TabOrder = 2
+    OnClick = btnContactosClick
+  end
+  object btnProgramarCorreo: TButton
+    Left = 50
+    Top = 250
+    Width = 300
+    Height = 40
+    Caption = 'Programar Correo'
+    TabOrder = 3
+    OnClick = btnProgramarCorreoClick
+  end
+  object btnPapelera: TButton
+    Left = 50
+    Top = 300
+    Width = 300
+    Height = 40
+    Caption = 'Papelera'
+    TabOrder = 4
+    OnClick = btnPapeleraClick
+  end
+  object btnActualizarPerfil: TButton
+    Left = 50
+    Top = 350
+    Width = 300
+    Height = 40
+    Caption = 'Actualizar Perfil'
+    TabOrder = 5
+    OnClick = btnActualizarPerfilClick
+  end
+  object btnReportes: TButton
+    Left = 50
+    Top = 400
+    Width = 300
+    Height = 40
+    Caption = 'Reportes'
+    TabOrder = 6
+    OnClick = btnReportesClick
+  end
+end
