@@ -1,0 +1,45 @@
+object frmActualizarPerfil: TfrmActualizarPerfil
+  Left = 250
+  Height = 200
+  Top = 200
+  Width = 350
+  Caption = 'Actualizar Perfil'
+  ClientHeight = 200
+  ClientWidth = 350
+  LCLVersion = '2.2.6'
+  OnShow = FormShow
+  object lblUsuario: TLabel
+    Left = 20
+    Top = 30
+    Caption = 'Usuario:'
+  end
+  object edtUsuario: TEdit
+    Left = 120
+    Top = 25
+    Width = 200
+    Height = 23
+    TabOrder = 0
+  end
+  object lblTelefono: TLabel
+    Left = 20
+    Top = 70
+    Caption = 'Teléfono:'
+  end
+  object edtTelefono: TEdit
+    Left = 120
+    Top = 65
+    Width = 200
+    Height = 23
+    TabOrder = 1
+  end
+  object btnActualizar: TButton
+    Left = 120
+    Top = 110
+    Width = 120
+    Height = 30
+    Caption = 'Actualizar'
+    OnClick = btnActualizarClick
+    TabOrder = 2
+  end
+end
+

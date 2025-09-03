@@ -1,0 +1,36 @@
+object frmCorreosProgramados: TfrmCorreosProgramados
+  Left = 0
+  Top = 0
+  Width = 500
+  Height = 400
+  Caption = 'Correos Programados'
+  ClientHeight = 400
+  ClientWidth = 500
+  OnCreate = FormCreate
+  object lvProgramados: TListView
+    Left = 20
+    Top = 20
+    Width = 460
+    Height = 300
+    ViewStyle = vsReport
+    Columns = <
+      item
+        Caption = 'Remitente'
+      end
+      item
+        Caption = 'Asunto'
+      end
+      item
+        Caption = 'Fecha y Hora'
+      end>
+  end
+  object btnEnviarAhora: TButton
+    Left = 180
+    Top = 340
+    Width = 120
+    Height = 30
+    Caption = 'Enviar Ahora'
+    OnClick = btnEnviarAhoraClick
+  end
+end
+

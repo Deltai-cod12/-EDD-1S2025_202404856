@@ -1,0 +1,74 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 0
+  Top = 0
+  Width = 600
+  Height = 400
+  Caption = 'EDDMail'
+  ClientHeight = 400
+  ClientWidth = 600
+  LCLVersion = '2.2.4.0'
+  object lblUsuario: TLabel
+    Left = 8
+    Top = 8
+    Width = 200
+    Height = 25
+    Caption = 'Usuario:'
+  end
+  object btnContactos: TButton
+    Left = 8
+    Top = 40
+    Width = 120
+    Height = 30
+    OnClick = btnContactosClick
+  end
+  object btnVerContactos: TButton
+    Left = 140
+    Top = 40
+    Width = 120
+    Height = 30
+    OnClick = btnVerContactosClick
+  end
+  object btnActualizarPerfil: TButton
+    Left = 272
+    Top = 40
+    Width = 120
+    Height = 30
+    OnClick = btnActualizarPerfilClick
+  end
+  object btnBandeja: TButton
+    Left = 404
+    Top = 40
+    Width = 120
+    Height = 30
+    OnClick = btnBandejaClick
+  end
+  object btnEnviarCorreo: TButton
+    Left = 8
+    Top = 80
+    Width = 120
+    Height = 30
+    OnClick = btnEnviarCorreoClick
+  end
+  object btnProgramarCorreo: TButton
+    Left = 140
+    Top = 80
+    Width = 120
+    Height = 30
+    OnClick = btnProgramarCorreoClick
+  end
+  object btnCorreosProgramados: TButton
+    Left = 272
+    Top = 80
+    Width = 120
+    Height = 30
+    OnClick = btnCorreosProgramadosClick
+  end
+  object btnPapelera: TButton
+    Left = 404
+    Top = 80
+    Width = 120
+    Height = 30
+    OnClick = btnPapeleraClick
+  end
+end
+

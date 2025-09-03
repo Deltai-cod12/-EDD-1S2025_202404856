@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="12"/>
+    <General>
+      <SessionStorage Value="InProjectDir"/>
+      <Title Value="project1"/>
+      <Scaled Value="True"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <XPManifest>
+        <DpiAware Value="True"/>
+      </XPManifest>
+      <Icon Value="0"/>
+    </General>
+    <BuildModes>
+      <Item Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+    <RunParams>
+      <FormatVersion Value="2"/>
+    </RunParams>
+    <RequiredPackages>
+      <Item>
+        <PackageName Value="LCL"/>
+      </Item>
+    </RequiredPackages>
+    <Units>
+      <Unit>
+        <Filename Value="project1.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ulogin.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uLogin"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Unidades/sll.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="SLL"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Unidades/dll_con.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="DLL_CON"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Unidades/ucontacttypes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UContactTypes"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Unidades/upila.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UPila"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Unidades/ucola.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UCola"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Unidades/umatriz.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UMatriz"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uregister.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form2"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uRegister"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uabrirmenuroot.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form3"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uAbrirMenuRoot"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uprincipal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPrincipal"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uPrincipal"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucontactos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form5"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uContactos"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uvercontactos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form6"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uVerContactos"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uactualizarperfil.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form7"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uActualizarPerfil"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ubandejaentrada.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmBandejaEntrada"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uBandejaEntrada"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uenviarcorreo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmEnviarCorreo"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uEnviarCorreo"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uprogramarcorreo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmProgramarCorreo"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uProgramarCorreo"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucorreosprogramados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form8"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uCorreosProgramados"/>
+      </Unit>
+      <Unit>
+        <Filename Value="upapelera.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form4"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uPapelera"/>
+      </Unit>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="project1"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="../Unidades"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf3"/>
+      </Debugging>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions>
+      <Item>
+        <Name Value="EAbort"/>
+      </Item>
+      <Item>
+        <Name Value="ECodetoolError"/>
+      </Item>
+      <Item>
+        <Name Value="EFOpenError"/>
+      </Item>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

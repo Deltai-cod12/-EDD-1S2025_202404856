@@ -1,0 +1,56 @@
+object frmLogin: TfrmLogin
+  Left = 300
+  Height = 300
+  Top = 200
+  Width = 500
+  Caption = 'EDDMail - Login'
+  ClientHeight = 300
+  ClientWidth = 500
+  object lblEmail: TLabel
+    Left = 50
+    Top = 50
+    Width = 100
+    Height = 25
+    Caption = 'Correo:'
+    Font.Size = 12
+  end
+  object edtEmail: TEdit
+    Left = 160
+    Top = 50
+    Width = 250
+    Height = 30
+    Font.Size = 12
+  end
+  object lblPassword: TLabel
+    Left = 50
+    Top = 100
+    Width = 100
+    Height = 25
+    Caption = 'Contraseña:'
+    Font.Size = 12
+  end
+  object edtPassword: TEdit
+    Left = 160
+    Top = 100
+    Width = 250
+    Height = 30
+    Font.Size = 12
+    PasswordChar = '*'
+  end
+  object btnLogin: TButton
+    Left = 160
+    Top = 160
+    Width = 120
+    Height = 40
+    Caption = 'Iniciar Sesión'
+    Font.Size = 12
+  end
+  object btnRegister: TButton
+    Left = 290
+    Top = 160
+    Width = 120
+    Height = 40
+    Caption = 'Registrar'
+    Font.Size = 12
+  end
+end
