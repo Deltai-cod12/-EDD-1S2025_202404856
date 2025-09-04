@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  SLL, fpjson, jsonparser;
+  SLL, fpjson, jsonparser, uMatriz, Comunidades, uCrearComunidades, process;
 
 type
   { TfrmAbrirMenuRoot }
@@ -14,15 +14,20 @@ type
     btnCargaMasiva: TButton;
     btnReporteUsuarios: TButton;
     btnReporteRelaciones: TButton;
+    btnCrearComunidades: TButton;
+    btnGrafComunidades: TButton;
     OpenDialog1: TOpenDialog;
     procedure btnCargaMasivaClick(Sender: TObject);
     procedure btnReporteUsuariosClick(Sender: TObject);
     procedure btnReporteRelacionesClick(Sender: TObject);
+    procedure btnCrearComunidadesClick(Sender: TObject);
   private
+    MatrizRelaciones: PMatriz;
     procedure CargarUsuariosDesdeJSON(const FileName: string);
     procedure GenerarReporteUsuarios;
     procedure GenerarReporteRelaciones;
   public
+    constructor Create(AOwner: TComponent); override;
   end;
 
 var
@@ -32,7 +37,12 @@ implementation
 
 {$R *.lfm}
 
-{ --- BOTONES --- }
+constructor TfrmAbrirMenuRoot.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  MatrizInit(MatrizRelaciones); // Imatriz de relaciones
+end;
+
 
 procedure TfrmAbrirMenuRoot.btnCargaMasivaClick(Sender: TObject);
 begin
@@ -50,7 +60,13 @@ begin
   GenerarReporteRelaciones;
 end;
 
-{ --- FUNCIONES PRIVADAS --- }
+procedure TfrmAbrirMenuRoot.btnCrearComunidadesClick(Sender: TObject);
+begin
+  if not Assigned(frmCrearComunidades) then
+    Application.CreateForm(TfrmCrearComunidades, frmCrearComunidades);
+  frmCrearComunidades.Show;
+  frmCrearComunidades.BringToFront;
+end;
 
 procedure TfrmAbrirMenuRoot.CargarUsuariosDesdeJSON(const FileName: string);
 var
@@ -110,30 +126,56 @@ end;
 procedure TfrmAbrirMenuRoot.GenerarReporteUsuarios;
 var
   SL: TStringList;
-  FilePath: string;
-  Actual: string;
+  FilePathTXT, DotFile, PNGFile, DotContent: string;
 begin
-  FilePath := 'Root-Reportes/ReporteUsuarios.txt';
+  // Crear carpeta Root-Reportes si no existe
   if not DirectoryExists('Root-Reportes') then
     ForceDirectories('Root-Reportes');
 
+  // Rutas de archivos
+  FilePathTXT := 'Root-Reportes/ReporteUsuarios.txt';
+  DotFile := 'Root-Reportes/Usuarios.dot';
+  PNGFile := 'Root-Reportes/Usuarios.png';
+
+  // Guardar reporte en TXT
   SL := TStringList.Create;
   try
     SL.Add('REPORTE DE USUARIOS');
-    SL.Add('-----------------');
-    SSL_PRINT; // Muestra en consola, opcional
-    Actual := SSL_GENERATE_DOT;
-    SL.Add(Actual);
-    SL.SaveToFile(FilePath);
-    ShowMessage('Reporte de usuarios generado en: ' + FilePath);
+    SL.Add('------------------');
+    SSL_PRINT; // Imprimir en consola, opcional
+
+    // Agregar contenido del DOT al TXT para referencia
+    DotContent := SSL_GENERATE_DOT;
+    SL.Add(DotContent);
+
+    SL.SaveToFile(FilePathTXT);
   finally
     SL.Free;
   end;
+
+  // Generar PNG usando Graphviz
+  GenerateDotUsuarios(DotFile, PNGFile);
 end;
 
+
 procedure TfrmAbrirMenuRoot.GenerarReporteRelaciones;
+var
+  DotFile, PNGFile: string;
 begin
-  ShowMessage('Generando reporte de relaciones (pendiente de implementar)');
+  if not DirectoryExists('Root-Reportes') then
+    ForceDirectories('Root-Reportes');
+
+  DotFile := 'Root-Reportes' + PathDelim + 'Relaciones.dot';
+  PNGFile := 'Root-Reportes' + PathDelim + 'Relaciones.png';
+
+  if (MatrizRelaciones = nil) or (MatrizRelaciones^.Head = nil) then
+  begin
+    ShowMessage('No hay relaciones registradas para generar el reporte.');
+    Exit;
+  end;
+
+  GenerateDotRelaciones(MatrizRelaciones, DotFile, PNGFile);
+  ShowMessage('Reporte de relaciones generado en: ' + PNGFile);
 end;
 
 end.

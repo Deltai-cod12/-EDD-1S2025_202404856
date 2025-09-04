@@ -151,6 +151,26 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uPapelera"/>
       </Unit>
+      <Unit>
+        <Filename Value="ureportes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmReportes"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uReportes"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Unidades/comunidades.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Comunidades"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucrearcomunidades.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form9"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uCrearComunidades"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

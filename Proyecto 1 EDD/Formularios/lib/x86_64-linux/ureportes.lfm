@@ -1,0 +1,61 @@
+object frmReportes: TfrmReportes
+  Left = 0
+  Top = 0
+  Width = 400
+  Height = 300
+  Caption = 'Reportes'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+
+  object btnReporteCorreos: TButton
+    Left = 20
+    Top = 20
+    Width = 160
+    Height = 32
+    Caption = 'Reporte Correos Recibidos'
+    OnClick = btnReporteCorreosClick
+  end
+
+  object btnReportePapelera: TButton
+    Left = 200
+    Top = 20
+    Width = 160
+    Height = 32
+    Caption = 'Reporte Papelera'
+    OnClick = btnReportePapeleraClick
+  end
+
+  object btnReporteProgramados: TButton
+    Left = 20
+    Top = 70
+    Width = 160
+    Height = 32
+    Caption = 'Reporte Correos Programados'
+    OnClick = btnReporteProgramadosClick
+  end
+
+  object btnReporteContactos: TButton
+    Left = 200
+    Top = 70
+    Width = 160
+    Height = 32
+    Caption = 'Reporte Contactos'
+    OnClick = btnReporteContactosClick
+  end
+
+  object btnCerrar: TButton
+    Left = 140
+    Top = 120
+    Width = 120
+    Height = 32
+    Caption = 'Cerrar'
+    OnClick = btnCerrarClick
+  end
+
+end
+

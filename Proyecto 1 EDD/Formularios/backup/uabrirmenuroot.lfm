@@ -1,12 +1,11 @@
 object frmAbrirMenuRoot: TfrmAbrirMenuRoot
   Left = 250
-  Height = 350
   Top = 150
   Width = 550
+  Height = 350
   Caption = 'EDDMail - Root'
-  ClientHeight = 350
   ClientWidth = 550
-  OnClose = FormClose
+  ClientHeight = 350
   object btnCargaMasiva: TButton
     Left = 50
     Top = 50
@@ -33,6 +32,28 @@ object frmAbrirMenuRoot: TfrmAbrirMenuRoot
     Caption = 'Reporte de Relaciones'
     Font.Size = 12
     OnClick = btnReporteRelacionesClick
+  end
+  object btnCrearComunidades: TButton
+    Left = 300
+    Top = 50
+    Width = 200
+    Height = 50
+    Caption = 'Crear Comunidad'
+    Font.Size = 12
+    OnClick = btnCrearComunidadesClick
+  end
+  object btnGrafComunidades: TButton
+    Left = 300
+    Top = 120
+    Width = 200
+    Height = 50
+    Caption = 'Graficar Comunidades'
+    Font.Size = 12
+    OnClick = btnGrafComunidadesClick
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 0
+    Top = 0
   end
 end
 

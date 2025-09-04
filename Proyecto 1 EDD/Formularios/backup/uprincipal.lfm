@@ -19,6 +19,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 40
     Width = 120
     Height = 30
+    Caption = 'Agregar Contacto'
     OnClick = btnContactosClick
   end
   object btnVerContactos: TButton
@@ -26,6 +27,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 40
     Width = 120
     Height = 30
+    Caption = 'Ver Contactos'
     OnClick = btnVerContactosClick
   end
   object btnActualizarPerfil: TButton
@@ -33,6 +35,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 40
     Width = 120
     Height = 30
+    Caption = 'Actualizar Perfil'
     OnClick = btnActualizarPerfilClick
   end
   object btnBandeja: TButton
@@ -40,6 +43,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 40
     Width = 120
     Height = 30
+    Caption = 'Bandeja de Entrada'
     OnClick = btnBandejaClick
   end
   object btnEnviarCorreo: TButton
@@ -47,6 +51,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 80
     Width = 120
     Height = 30
+    Caption = 'Enviar Correo'
     OnClick = btnEnviarCorreoClick
   end
   object btnProgramarCorreo: TButton
@@ -54,6 +59,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 80
     Width = 120
     Height = 30
+    Caption = 'Programar Correo'
     OnClick = btnProgramarCorreoClick
   end
   object btnCorreosProgramados: TButton
@@ -61,6 +67,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 80
     Width = 120
     Height = 30
+    Caption = 'Correos Programados'
     OnClick = btnCorreosProgramadosClick
   end
   object btnPapelera: TButton
@@ -68,6 +75,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 80
     Width = 120
     Height = 30
+    Caption = 'Papelera'
     OnClick = btnPapeleraClick
   end
 end

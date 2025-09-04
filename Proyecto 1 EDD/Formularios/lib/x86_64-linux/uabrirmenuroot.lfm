@@ -33,6 +33,15 @@ object frmAbrirMenuRoot: TfrmAbrirMenuRoot
     Font.Size = 12
     OnClick = btnReporteRelacionesClick
   end
+  object btnCrearComunidades: TButton
+    Left = 300
+    Top = 50
+    Width = 200
+    Height = 50
+    Caption = 'Crear Comunidad'
+    Font.Size = 12
+    OnClick = btnCrearComunidadesClick
+  end
   object OpenDialog1: TOpenDialog
     Left = 0
     Top = 0

@@ -127,7 +127,7 @@ var
   i, j: Integer;
   Correos: array of PNodeMsg;
   temp: PNodeMsg;
-  actual: PNodeMsg; // 🔹 declarar aquí
+  actual: PNodeMsg; //declaramos el nodo
 begin
   if (FListaInbox = nil) or (FListaInbox^.Head = nil) then Exit;
 

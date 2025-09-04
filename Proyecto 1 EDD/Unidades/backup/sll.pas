@@ -3,7 +3,7 @@ unit SLL;
 
 interface
 uses
-    DLL_CON, UContactTypes, UPila;
+    DLL_CON, UContactTypes, UPila, UCola, Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Process;
     type
         TDataUser = record
         id: string;
@@ -27,8 +27,7 @@ uses
     function SLL_actualizarPerfil(email, username, phone: string):Boolean;
 
 implementation
-    uses
-        SysUtils, Classes;
+
 
     type
         PNode = ^TNode;
@@ -332,5 +331,33 @@ implementation
         Result := ResultText;
 
     end;
+
+procedure GenerateDotUsuarios(const DotFile, PNGFile: string);
+var
+  SL: TStringList;
+  DotContent: string;
+  Output: AnsiString;
+begin
+  // Generar el contenido .dot
+  DotContent := SSL_GENERATE_DOT;
+
+  SL := TStringList.Create;
+  try
+    SL.Text := DotContent;
+    SL.SaveToFile(DotFile);
+  finally
+    SL.Free;
+  end;
+
+  // Ejecutar Graphviz para generar PNG
+  if FileExists('/usr/bin/dot') then
+    RunCommand('/usr/bin/dot', ['-Tpng', DotFile, '-o', PNGFile], Output)
+  else if FileExists('C:\Program Files\Graphviz\bin\dot.exe') then
+    RunCommand('C:\Program Files\Graphviz\bin\dot.exe', ['-Tpng', DotFile, '-o', PNGFile], Output)
+  else
+    ShowMessage('No se encontró Graphviz (dot). Instálalo o ajusta la ruta.');
+
+  ShowMessage('Reporte de usuarios generado en: ' + PNGFile);
+end;
 
 end.

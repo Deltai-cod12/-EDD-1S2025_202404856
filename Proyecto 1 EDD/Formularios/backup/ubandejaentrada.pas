@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
-  DLL_CON, SLL;
+  DLL_CON, SLL, UPila;
 
 type
   { TfrmBandejaEntrada }

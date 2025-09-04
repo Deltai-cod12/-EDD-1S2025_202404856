@@ -132,7 +132,8 @@
       <Unit>
         <Filename Value="uprogramarcorreo.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form4"/>
+        <ComponentName Value="frmProgramarCorreo"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uProgramarCorreo"/>
       </Unit>
@@ -142,6 +143,33 @@
         <ComponentName Value="Form8"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uCorreosProgramados"/>
+      </Unit>
+      <Unit>
+        <Filename Value="upapelera.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form4"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uPapelera"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ureportes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmReportes"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uReportes"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Unidades/comunidades.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Comunidades"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucrearcomunidades.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form9"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uCrearComunidades"/>
       </Unit>
     </Units>
   </ProjectOptions>

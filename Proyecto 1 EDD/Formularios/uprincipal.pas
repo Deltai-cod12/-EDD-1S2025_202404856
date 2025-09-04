@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
   uContactos, uVerContactos, uActualizarPerfil, uBandejaEntrada,
-  uEnviarCorreo, uProgramarCorreo, uCorreosProgramados, uPapelera, SLL;
+  uEnviarCorreo, uProgramarCorreo, uCorreosProgramados, uPapelera, uReportes, SLL;
 
 type
   { TfrmPrincipal }
@@ -21,6 +21,7 @@ type
     btnProgramarCorreo: TButton;
     btnCorreosProgramados: TButton;
     btnPapelera: TButton;
+    btnReportes: TButton;
     lblUsuario: TLabel;
     procedure btnContactosClick(Sender: TObject);
     procedure btnVerContactosClick(Sender: TObject);
@@ -30,6 +31,7 @@ type
     procedure btnProgramarCorreoClick(Sender: TObject);
     procedure btnCorreosProgramadosClick(Sender: TObject);
     procedure btnPapeleraClick(Sender: TObject);
+    procedure btnReportesClick(Sender: TObject); // <-- agregado
     procedure FormCreate(Sender: TObject);
   public
     UsuarioEmail: string; // Email del usuario actual
@@ -37,6 +39,7 @@ type
 
 var
   frmPrincipal: TfrmPrincipal;
+  frmReportes: TfrmReportes; // Declaración global del formulario de reportes
 
 implementation
 
@@ -54,6 +57,7 @@ begin
   btnEnviarCorreo.Caption := 'Enviar Correo';
   btnProgramarCorreo.Caption := 'Programar Correo';
   btnCorreosProgramados.Caption := 'Correos Programados';
+  btnReportes.Caption := 'Reportes';
   btnPapelera.Caption := 'Papelera';
 end;
 
@@ -153,6 +157,31 @@ begin
   finally
     frmPapelera.Free;
   end;
+end;
+
+procedure TfrmPrincipal.btnReportesClick(Sender: TObject);
+var
+  usuario: TDataUser;
+begin
+  // Obtiene la información del usuario actual
+  usuario := SSL_GETBYEMAIL(UsuarioEmail);
+
+  // Verifica que se haya encontrado el usuario
+  if usuario.email = '' then
+  begin
+    ShowMessage('Usuario no encontrado.');
+    Exit;
+  end;
+
+  // Crear la instancia del formulario de reportes si no existe
+  if not Assigned(frmReportes) then
+    frmReportes := TfrmReportes.Create(Application);
+
+  // Pasa el usuario actual al formulario de reportes
+  frmReportes.SetUsuario(usuario);
+
+  // Muestra el formulario de reportes como modal
+  frmReportes.ShowModal;
 end;
 
 end.

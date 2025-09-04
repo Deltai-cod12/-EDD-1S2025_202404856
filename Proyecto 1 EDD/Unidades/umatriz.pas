@@ -4,6 +4,9 @@ unit UMatriz;
 
 interface
 
+uses
+  SysUtils, Classes, Dialogs, Process;
+
 type
     PMatrizNodo = ^TMatrizNodo;
     TMatrizNodo = record
@@ -21,60 +24,105 @@ procedure MatrizInit(var M: PMatriz);
 procedure InsertRelacion(var M: PMatriz; fila, columna: string);
 function SearchRelacion(var M: PMatriz; fila, columna: string): PMatrizNodo;
 procedure PrintMatriz(var M: PMatriz);
+procedure GenerateDotRelaciones(Matriz: PMatriz; const DotFile, PNGFile: string);
 
 implementation
-uses SysUtils;
 
 procedure MatrizInit(var M: PMatriz);
 begin
-    New(M);
-    M^.Head := nil;
+  New(M);
+  M^.Head := nil;
 end;
 
 procedure InsertRelacion(var M: PMatriz; fila, columna: string);
-var actual: PMatrizNodo;
+var
+  Nodo: PMatrizNodo;
 begin
-    actual := SearchRelacion(M, fila, columna);
-    if actual <> nil then
-    begin
-        Inc(actual^.cantidad);
-        Exit;
-    end;
+  Nodo := SearchRelacion(M, fila, columna);
+  if Nodo <> nil then
+  begin
+    Inc(Nodo^.cantidad);
+    Exit;
+  end;
 
-    New(actual);
-    actual^.fila := fila;
-    actual^.columna := columna;
-    actual^.cantidad := 1;
-    actual^.derecha := M^.Head;
-    actual^.abajo := nil;
-    M^.Head := actual;
+  New(Nodo);
+  Nodo^.fila := fila;
+  Nodo^.columna := columna;
+  Nodo^.cantidad := 1;
+  Nodo^.derecha := M^.Head;
+  Nodo^.abajo := nil;
+  M^.Head := Nodo;
 end;
 
 function SearchRelacion(var M: PMatriz; fila, columna: string): PMatrizNodo;
-var actual: PMatrizNodo;
+var
+  Actual: PMatrizNodo;
 begin
-    actual := M^.Head;
-    while actual <> nil do
+  Actual := M^.Head;
+  while Actual <> nil do
+  begin
+    if (Actual^.fila = fila) and (Actual^.columna = columna) then
     begin
-        if (actual^.fila = fila) and (actual^.columna = columna) then
-        begin
-            Result := actual;
-            Exit;
-        end;
-        actual := actual^.derecha;
+      Result := Actual;
+      Exit;
     end;
-    Result := nil;
+    Actual := Actual^.derecha;
+  end;
+  Result := nil;
 end;
 
 procedure PrintMatriz(var M: PMatriz);
-var actual: PMatrizNodo;
+var
+  Actual: PMatrizNodo;
 begin
-    actual := M^.Head;
-    while actual <> nil do
+  Actual := M^.Head;
+  while Actual <> nil do
+  begin
+    Writeln(Actual^.fila, ' -> ', Actual^.columna, ' = ', Actual^.cantidad);
+    Actual := Actual^.derecha;
+  end;
+end;
+
+procedure GenerateDotRelaciones(Matriz: PMatriz; const DotFile, PNGFile: string);
+var
+  SL: TStringList;
+  Actual: PMatrizNodo;
+  Output: AnsiString;
+begin
+  if (Matriz = nil) or (Matriz^.Head = nil) then
+  begin
+    ShowMessage('La matriz de relaciones está vacía.');
+    Exit;
+  end;
+
+  SL := TStringList.Create;
+  try
+    SL.Add('digraph Relaciones {');
+    SL.Add('  rankdir=LR;'); // de izquierda a derecha
+    SL.Add('  node [shape=record, style=filled, fillcolor=lightyellow];');
+    SL.Add('  label="Matriz Dispersa de Relaciones";');
+    SL.Add('  labelloc=t;');
+    SL.Add('');
+
+    Actual := Matriz^.Head;
+    while Actual <> nil do
     begin
-        Writeln(actual^.fila, ' -> ', actual^.columna, ' = ', actual^.cantidad);
-        actual := actual^.derecha;
+      SL.Add(Format('  "%s -> %s" [label="%d"];',
+        [Actual^.fila, Actual^.columna, Actual^.cantidad]));
+      Actual := Actual^.derecha;
     end;
+
+    SL.Add('}');
+    SL.SaveToFile(DotFile);
+
+    // Ejecutar Graphviz si existe
+    if FileExists('/usr/bin/dot') then
+      RunCommand('/usr/bin/dot', ['-Tpng', DotFile, '-o', PNGFile], Output);
+
+    ShowMessage('Reporte de relaciones generado en: ' + PNGFile);
+  finally
+    SL.Free;
+  end;
 end;
 
 end.
