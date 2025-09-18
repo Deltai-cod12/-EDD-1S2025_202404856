@@ -33,19 +33,19 @@ implementation
 
 procedure TfrmLogin.btnLoginClick(Sender: TObject);
 var
-  email, password: string;
+  user, password: string;
 begin
-  email := Trim(edtEmail.Text);
+  user := Trim(edtEmail.Text);
   password := Trim(edtPassword.Text);
 
-  if (email = '') or (password = '') then
+  if (user = '') or (password = '') then
   begin
     ShowMessage('Debe ingresar Email y Password');
     Exit;
   end;
 
   // Validación ROOT
-  if (email = 'root@edd.com') and (password = 'root123') then
+  if (user = 'root@edd.com') and (password = 'root123') then
   begin
     ShowMessage('Bienvenido ROOT');
     AbrirMenuRoot;
@@ -53,15 +53,13 @@ begin
   end;
 
   // Validación usuario normal
-  if ValidatePassAndEmailLogin(email, password) then
+  if ValidatePassAndEmailLogin(user, password) then
   begin
-    ShowMessage('Bienvenido ' + email);
+    ShowMessage('Bienvenido ' + user);
     AbrirMenuUsuario(email);
   end
   else
-  begin
     ShowMessage('Credenciales incorrectas');
-  end;
 end;
 
 procedure TfrmLogin.btnRegisterClick(Sender: TObject);
@@ -86,13 +84,14 @@ end;
 
 procedure TfrmLogin.AbrirMenuUsuario(email: string);
 begin
-  Hide; // Oculta el formulario de login
+  Hide; // Oculta login
+  frmPrincipal := TfrmPrincipal.Create(Application);
   try
-    frmPrincipal := TfrmPrincipal.Create(Application);
-    frmPrincipal.UsuarioEmail := email;  // CORRECTO: coincide con TfrmPrincipal
+    frmPrincipal.UsuarioEmail := email; // Pasa el email al formulario principal
     frmPrincipal.ShowModal;
   finally
-    Free; // Cierra y libera el formulario de login
+    frmPrincipal.Free;
+    Show; // Muestra login al cerrar el menú principal
   end;
 end;
 

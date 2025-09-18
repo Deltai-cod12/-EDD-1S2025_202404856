@@ -1,0 +1,10 @@
+digraph Bandeja {
+  rankdir=LR;
+  node [shape=record, style=filled, fillcolor=lightyellow];
+  label="Lista Doblemente Enlazada";
+  labelloc=t; fontsize=20;
+
+  "20250913104553486" [label="{ID: 20250913104553486 | Remitente: lgarcia@edd.com | Asunto: Hola Amigo | Fecha: 13-09-2025 10:45:53 | Estado: NL}"];
+  "20250913104553486" -> "20250913104616406" [dir=both];
+  "20250913104616406" [label="{ID: 20250913104616406 | Remitente: lgarcia@edd.com | Asunto: Avion  | Fecha: 13-09-2025 10:46:16 | Estado: NL}"];
+}

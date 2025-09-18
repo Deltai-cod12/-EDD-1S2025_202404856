@@ -1,0 +1,8 @@
+digraph Papelera {
+  rankdir=TB;
+  node [shape=record, style=filled, fillcolor=lightblue];
+  label="Pila";
+  labelloc=t; fontsize=20;
+
+  "20250913104529546" [label="{ID: 20250913104529546 | Remitente: lgarcia@edd.com | Asunto: Correo 1 | Estado: L}"];
+}

@@ -141,10 +141,10 @@ begin
     actual := actual^.Next;
   end;
 
-  // Bubble sort por asunto (ascendente)
+  // Bubble sort por asunto (ascendente)         //Modificacion de ordenar de Z - A
   for i := 0 to High(Correos)-1 do
     for j := 0 to High(Correos)-i-1 do
-      if CompareText(Correos[j]^.asunto, Correos[j+1]^.asunto) > 0 then
+      if CompareText(Correos[j]^.asunto, Correos[j+1]^.asunto) < 0 then //Modificacion pacambiar la comparacion y odenar de Z a A
       begin
         temp := Correos[j];
         Correos[j] := Correos[j+1];

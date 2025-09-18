@@ -1,0 +1,10 @@
+digraph Programados {
+  rankdir=LR;
+  node [shape=record, style=filled, fillcolor=lightgreen];
+  label="Cola";
+  labelloc=t;
+
+  "548813" [label="{ID: 548813 | Remitente: lgarcia@edd.com | Asunto: Programado 1 | Fecha: 15-9-25 15:00:00 | Estado: NL}"];
+  "548813" -> "592844";
+  "592844" [label="{ID: 592844 | Remitente: lgarcia@edd.com | Asunto: Correo 2 | Fecha: 20-9-25 15:00:00 | Estado: NL}"];
+}

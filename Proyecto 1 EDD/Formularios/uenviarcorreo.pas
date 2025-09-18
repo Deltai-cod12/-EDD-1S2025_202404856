@@ -20,9 +20,9 @@ type
     procedure btnEnviarClick(Sender: TObject);
   private
     FUsuario: TDataUser;
-    function EstaEnContactos(const email: string): Boolean;
+    function EstaEnContactos(const user: string): Boolean;
   public
-    procedure SetUsuarioEmail(const email: string);
+    procedure SetUsuarioEmail(const user: string);
   end;
 
 var
@@ -32,12 +32,12 @@ implementation
 
 {$R *.lfm}
 
-procedure TfrmEnviarCorreo.SetUsuarioEmail(const email: string);
+procedure TfrmEnviarCorreo.SetUsuarioEmail(const user: string);
 begin
-  FUsuario := SSL_GETBYEMAIL(email);
+  FUsuario := SSL_GETBYEMAIL(user);
 end;
 
-function TfrmEnviarCorreo.EstaEnContactos(const email: string): Boolean;
+function TfrmEnviarCorreo.EstaEnContactos(const user: string): Boolean;
 var
   actual: PContactNode;
 begin
@@ -49,7 +49,7 @@ begin
 
   actual := FUsuario.Contacts^.Head;
   repeat
-    if actual^.email = Trim(email) then
+    if actual^.user = Trim(user) then
     begin
       Result := True;
       Exit;

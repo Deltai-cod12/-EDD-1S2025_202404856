@@ -1,0 +1,14 @@
+digraph Contactos {
+  rankdir=LR;
+  label="Lista Circular";
+  labelloc="t";
+  fontsize=14;
+  node [shape=record, style=filled, fillcolor=lightgreen];
+
+  "mitzep@edd.com" [label="{Nombre: Marcos Itzep | Usuario: mitzep | Email: mitzep@edd.com | Tel: 87654321}"];
+  "mitzep@edd.com" -> "mshuttleworth@edd.com";
+  "mitzep@edd.com" <- "mshuttleworth@edd.com";
+  "mshuttleworth@edd.com" [label="{Nombre: Mark Shuttleworth | Usuario: mshuttleworth | Email: mshuttleworth@edd.com | Tel: 76018423}"];
+  "mshuttleworth@edd.com" -> "mitzep@edd.com";
+  "mshuttleworth@edd.com" <- "mitzep@edd.com";
+}

@@ -33,19 +33,19 @@ implementation
 
 procedure TfrmLogin.btnLoginClick(Sender: TObject);
 var
-  email, password: string;
+  user, password: string;
 begin
-  email := Trim(edtEmail.Text);
+  user := Trim(edtEmail.Text);
   password := Trim(edtPassword.Text);
 
-  if (email = '') or (password = '') then
+  if (user = '') or (password = '') then
   begin
     ShowMessage('Debe ingresar Email y Password');
     Exit;
   end;
 
   // Validación ROOT
-  if (email = 'root@edd.com') and (password = 'root123') then
+  if (user = 'root@edd.com') and (password = 'root123') then
   begin
     ShowMessage('Bienvenido ROOT');
     AbrirMenuRoot;
@@ -53,10 +53,10 @@ begin
   end;
 
   // Validación usuario normal
-  if ValidatePassAndEmailLogin(email, password) then
+  if ValidatePassAndEmailLogin(user, password) then
   begin
-    ShowMessage('Bienvenido ' + email);
-    AbrirMenuUsuario(email);
+    ShowMessage('Bienvenido ' + user);
+    AbrirMenuUsuario(user);
   end
   else
     ShowMessage('Credenciales incorrectas');

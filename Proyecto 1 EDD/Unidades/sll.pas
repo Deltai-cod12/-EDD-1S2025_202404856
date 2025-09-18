@@ -7,7 +7,7 @@ uses
     type
         TDataUser = record
         id: string;
-        name: string;
+        name: string;   //modificacion para ingresar por nombre de usuario
         email: string;
         user: string;
         phone: string;
@@ -20,9 +20,9 @@ uses
 
     function SLL_INSERT(id,name,email,username,phone,password: string): Boolean;
     procedure SSL_PRINT;
-    function ValidatePassAndEmail(email, password: string): Boolean;
-    function ValidatePassAndEmailLogin(email, password: string): Boolean;
-    function SSL_GETBYEMAIL(const email: string): TDataUser;
+    function ValidatePassAndEmail(user, password: string): Boolean;
+    function ValidatePassAndEmailLogin(user, password: string): Boolean;
+    function SSL_GETBYEMAIL(const user: string): TDataUser;
     function SSL_GENERATE_DOT: string;
     function SLL_actualizarPerfil(email, username, phone: string):Boolean;
     procedure GenerateDotUsuarios(const DotFile, PNGFile: string);
@@ -53,7 +53,7 @@ implementation
 
 
 
-    function SSL_GETBYEMAIL(const email: string): TDataUser;
+    function SSL_GETBYEMAIL(const user: string): TDataUser;
     var
         actual : PNode;
 
@@ -72,7 +72,7 @@ implementation
         actual := Head;
         while actual <> nil do
         begin
-            if actual^.email = Trim(email) then
+            if actual^.username = Trim(user) then
             begin
                 Result.id := actual^.id;
                 Result.user := actual^.username;
@@ -127,7 +127,7 @@ implementation
 
     begin
 
-        isValid := ValidatePassAndEmail(email, password);
+        isValid := ValidatePassAndEmail(username, password);
         if isValid then
         begin
             Result:= False;
@@ -180,7 +180,7 @@ implementation
         end;
     end;
 
-    function ValidatePassAndEmail(email, password: string):Boolean;
+    function ValidatePassAndEmail(user, password: string):Boolean;
      var
         Actual: PNode;
     begin
@@ -191,7 +191,7 @@ implementation
         Actual := Head;
         while Actual <> nil do
         begin
-            if (Actual^.email = email) or (Actual^.password = password) then
+            if (Actual^.username = user) or (Actual^.password = password) then
             begin
                 Result := True;
                 exit;
@@ -200,7 +200,7 @@ implementation
         end;
     end;
 
-    function ValidatePassAndEmailLogin(email, password: string):Boolean;
+    function ValidatePassAndEmailLogin(user, password: string):Boolean;
      var
         Actual: PNode;
 
@@ -212,7 +212,7 @@ implementation
         Actual := Head;
         while Actual <> nil do
         begin
-            if (Actual^.email = email) and (Actual^.password = password) then
+            if (Actual^.username = user) and (Actual^.password = password) then
             begin
                 Result := True;
                 exit;

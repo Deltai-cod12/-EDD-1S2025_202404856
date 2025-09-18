@@ -39,21 +39,25 @@ end;
 
 function TfrmEnviarCorreo.EstaEnContactos(const email: string): Boolean;
 var
-  actual: PNodeContact;
+  actual: PContactNode;
 begin
   Result := False;
-  if FUsuario.Contacts = nil then Exit;
+
+  // Verificar que la lista de contactos exista y no esté vacía
+  if (FUsuario.Contacts = nil) or (FUsuario.Contacts^.Head = nil) then
+    Exit;
+
   actual := FUsuario.Contacts^.Head;
-  while actual <> nil do
-  begin
+  repeat
     if actual^.email = Trim(email) then
     begin
       Result := True;
       Exit;
     end;
     actual := actual^.Next;
-  end;
+  until actual = FUsuario.Contacts^.Head; // por ser lista circular
 end;
+
 
 procedure TfrmEnviarCorreo.btnEnviarClick(Sender: TObject);
 var

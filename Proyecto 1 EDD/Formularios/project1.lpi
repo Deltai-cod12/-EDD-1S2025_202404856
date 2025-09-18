@@ -171,6 +171,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uCrearComunidades"/>
       </Unit>
+      <Unit>
+        <Filename Value="../../T2/bst_desde_json.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="BST_Desde_JSON"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -180,7 +185,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="../Unidades"/>
+      <OtherUnitFiles Value="../Unidades;../../T2"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
