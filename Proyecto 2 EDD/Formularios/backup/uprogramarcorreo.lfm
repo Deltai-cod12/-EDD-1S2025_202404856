@@ -1,0 +1,71 @@
+object frmProgramarCorreo: TfrmProgramarCorreo
+  Left = 0
+  Top = 0
+  Width = 400
+  Height = 300
+  Caption = 'Programar Correo'
+  ClientHeight = 300
+  ClientWidth = 400
+  LCLVersion = '2.2.4.0'
+  object lblAsunto: TLabel
+    Left = 20
+    Top = 20
+    Width = 50
+    Height = 15
+    Caption = 'Asunto:'
+  end
+  object edtAsunto: TEdit
+    Left = 100
+    Top = 16
+    Width = 250
+    Height = 25
+  end
+  object lblMensaje: TLabel
+    Left = 20
+    Top = 60
+    Width = 60
+    Height = 15
+    Caption = 'Mensaje:'
+  end
+  object memMensaje: TMemo
+    Left = 100
+    Top = 56
+    Width = 250
+    Height = 80
+  end
+  object lblFecha: TLabel
+    Left = 20
+    Top = 150
+    Width = 80
+    Height = 15
+    Caption = 'Fecha (dd/mm/yyyy):'
+  end
+  object edtFecha: TEdit
+    Left = 150
+    Top = 146
+    Width = 100
+    Height = 25
+  end
+  object lblHora: TLabel
+    Left = 20
+    Top = 190
+    Width = 80
+    Height = 15
+    Caption = 'Hora (hh:nn):'
+  end
+  object edtHora: TEdit
+    Left = 150
+    Top = 186
+    Width = 60
+    Height = 25
+  end
+  object btnProgramar: TButton
+    Left = 150
+    Top = 230
+    Width = 100
+    Height = 30
+    Caption = 'Programar'
+    OnClick = btnProgramarClick
+  end
+end
+

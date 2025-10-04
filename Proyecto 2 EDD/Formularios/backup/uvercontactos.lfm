@@ -1,0 +1,61 @@
+object frmVerContactos: TfrmVerContactos
+  Left = 300
+  Top = 200
+  Width = 400
+  Height = 250
+  Caption = 'Contactos'
+  ClientHeight = 250
+  ClientWidth = 400
+  OnCreate = FormCreate
+  object lblNombre: TLabel
+    Left = 20
+    Top = 20
+    Width = 350
+    Height = 25
+    Caption = 'Nombre: ---'
+    Font.Size = 12
+  end
+  object lblUsuario: TLabel
+    Left = 20
+    Top = 50
+    Width = 350
+    Height = 25
+    Caption = 'Usuario: ---'
+    Font.Size = 12
+  end
+  object lblEmail: TLabel
+    Left = 20
+    Top = 80
+    Width = 350
+    Height = 25
+    Caption = 'Email: ---'
+    Font.Size = 12
+  end
+  object lblTelefono: TLabel
+    Left = 20
+    Top = 110
+    Width = 350
+    Height = 25
+    Caption = 'Teléfono: ---'
+    Font.Size = 12
+  end
+  object btnAnterior: TButton
+    Left = 50
+    Top = 160
+    Width = 120
+    Height = 40
+    Caption = 'Anterior'
+    Font.Size = 12
+    OnClick = btnAnteriorClick
+  end
+  object btnSiguiente: TButton
+    Left = 220
+    Top = 160
+    Width = 120
+    Height = 40
+    Caption = 'Siguiente'
+    Font.Size = 12
+    OnClick = btnSiguienteClick
+  end
+end
+

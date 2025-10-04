@@ -1,0 +1,32 @@
+object frmContactos: TfrmContactos
+  Left = 200
+  Height = 150
+  Top = 150
+  Width = 400
+  Caption = 'Agregar Contacto'
+  ClientHeight = 150
+  ClientWidth = 400
+  OnCreate = FormCreate
+  object lblCorreo: TLabel
+    Left = 20
+    Top = 20
+    Width = 150
+    Height = 25
+    Caption = 'Correo del Contacto:'
+  end
+  object edtCorreo: TEdit
+    Left = 180
+    Top = 20
+    Width = 180
+    Height = 25
+  end
+  object btnAgregarContacto: TButton
+    Left = 140
+    Top = 60
+    Width = 120
+    Height = 30
+    Caption = 'Agregar Contacto'
+    OnClick = btnAgregarContactoClick
+  end
+end
+

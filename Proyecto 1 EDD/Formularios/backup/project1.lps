@@ -8,9 +8,9 @@
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="3"/>
-        <CursorPos X="19" Y="13"/>
-        <UsageCount Value="45"/>
+        <WindowIndex Value="-1"/>
+        <CursorPos X="21" Y="13"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="ulogin.pas"/>
@@ -21,26 +21,23 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="28"/>
         <CursorPos X="58" Y="45"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/sll.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SLL"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="52"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="43" Y="24"/>
-        <UsageCount Value="45"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/dll_con.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="DLL_CON"/>
-        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="100" Y="7"/>
-        <UsageCount Value="45"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/ucontacttypes.pas"/>
@@ -48,25 +45,24 @@
         <UnitName Value="UContactTypes"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="5" Y="17"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/upila.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPila"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="14" Y="30"/>
-        <UsageCount Value="45"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/ucola.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UCola"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="54"/>
         <CursorPos X="24" Y="93"/>
-        <UsageCount Value="45"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/umatriz.pas"/>
@@ -75,7 +71,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="61"/>
         <CursorPos Y="85"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="uregister.pas"/>
@@ -86,7 +82,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="12"/>
         <CursorPos X="24" Y="66"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="uabrirmenuroot.pas"/>
@@ -97,7 +93,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="115"/>
         <CursorPos X="57" Y="43"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="uprincipal.pas"/>
@@ -109,7 +105,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="121"/>
         <CursorPos X="39" Y="155"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="ucontactos.pas"/>
@@ -120,7 +116,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="17"/>
         <CursorPos X="46" Y="45"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="uvercontactos.pas"/>
@@ -130,7 +126,7 @@
         <UnitName Value="uVerContactos"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="26" Y="95"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="uactualizarperfil.pas"/>
@@ -140,7 +136,7 @@
         <UnitName Value="uActualizarPerfil"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21" Y="12"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="ubandejaentrada.pas"/>
@@ -152,7 +148,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="14"/>
         <CursorPos X="48" Y="155"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="uenviarcorreo.pas"/>
@@ -164,7 +160,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="47"/>
         <CursorPos X="15" Y="67"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="45"/>
       </Unit>
       <Unit>
         <Filename Value="uprogramarcorreo.pas"/>
@@ -175,7 +171,7 @@
         <UnitName Value="uProgramarCorreo"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="13" Y="143"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
       </Unit>
       <Unit>
         <Filename Value="ucorreosprogramados.pas"/>
@@ -185,7 +181,7 @@
         <UnitName Value="uCorreosProgramados"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="50" Y="53"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
       </Unit>
       <Unit>
         <Filename Value="upapelera.pas"/>
@@ -195,7 +191,7 @@
         <UnitName Value="uPapelera"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="16" Y="99"/>
-        <UsageCount Value="42"/>
+        <UsageCount Value="43"/>
       </Unit>
       <Unit>
         <Filename Value="ureportes.pas"/>
@@ -207,7 +203,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="98"/>
         <CursorPos X="12" Y="12"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="42"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/comunidades.pas"/>
@@ -216,7 +212,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="16"/>
         <CursorPos X="76" Y="16"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="32"/>
       </Unit>
       <Unit>
         <Filename Value="ucrearcomunidades.pas"/>
@@ -227,7 +223,15 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="31"/>
         <CursorPos X="48" Y="28"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="32"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../T2/bst_desde_json.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="BST_Desde_JSON"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="21" Y="107"/>
+        <UsageCount Value="21"/>
       </Unit>
       <Unit>
         <Filename Value="ulogin.lfm"/>
@@ -357,8 +361,8 @@
         <Filename Value="../../../COPIDA DE SEGURIDAD PROYECTO/Proyecto 1 EDD/Unidades/sll.pas"/>
         <UnitName Value="SLL"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="196"/>
-        <CursorPos X="37" Y="215"/>
+        <TopLine Value="157"/>
+        <CursorPos X="25" Y="75"/>
         <UsageCount Value="10"/>
       </Unit>
       <Unit>
@@ -396,6 +400,33 @@
         <TopLine Value="994"/>
         <CursorPos X="48" Y="1125"/>
         <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../COPIDA DE SEGURIDAD PROYECTO/Proyecto 1 EDD/Formularios/uprincipal.pas"/>
+        <UnitName Value="uPrincipal"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../Proyecto 2 EDD/Unidades/sll.pas"/>
+        <UnitName Value="SLL"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="5" Y="364"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../Proyecto 2 EDD/Formularios/ulogin.pas"/>
+        <ComponentName Value="frmLogin"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uLogin"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="60"/>
+        <CursorPos Y="99"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="-1"/>
