@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
-  DLL_CON, SLL, UPila;
+  DLL_CON, SLL, UPila, UBTree; // <-- añadimos UBTree
 
 type
   { TfrmBandejaEntrada }
@@ -14,12 +14,14 @@ type
     lvCorreos: TListView;
     btnOrdenar: TButton;
     btnEliminar: TButton;
+    btnFavoritos: TButton; // <-- nuevo botón
     lblNoLeidos: TLabel;
     memoMensaje: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure lvCorreosSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure btnOrdenarClick(Sender: TObject);
     procedure btnEliminarClick(Sender: TObject);
+    procedure btnFavoritosClick(Sender: TObject); // <-- nuevo handler
   private
     FListaInbox: PMsgList;
     FCorreoActual: PNodeMsg;
@@ -127,11 +129,10 @@ var
   i, j: Integer;
   Correos: array of PNodeMsg;
   temp: PNodeMsg;
-  actual: PNodeMsg; // 🔹 declarar aquí
+  actual: PNodeMsg;
 begin
   if (FListaInbox = nil) or (FListaInbox^.Head = nil) then Exit;
 
-  // Pasar la lista a un arreglo para ordenar
   SetLength(Correos, 0);
   actual := FListaInbox^.Head;
   while actual <> nil do
@@ -141,7 +142,6 @@ begin
     actual := actual^.Next;
   end;
 
-  // Bubble sort por asunto (ascendente)
   for i := 0 to High(Correos)-1 do
     for j := 0 to High(Correos)-i-1 do
       if CompareText(Correos[j]^.asunto, Correos[j+1]^.asunto) > 0 then
@@ -151,7 +151,6 @@ begin
         Correos[j+1] := temp;
       end;
 
-  // Reconstruir la lista doble
   FListaInbox^.Head := Correos[0];
   FListaInbox^.Head^.Prev := nil;
   for i := 1 to High(Correos) do
@@ -161,10 +160,8 @@ begin
   end;
   Correos[High(Correos)]^.Next := nil;
 
-  // Recargar lista visual
   CargarCorreos;
 end;
-
 
 procedure TfrmBandejaEntrada.btnEliminarClick(Sender: TObject);
 var
@@ -176,25 +173,49 @@ begin
   item := lvCorreos.Items[lvCorreos.ItemIndex];
   nodo := PNodeMsg(item.Data);
 
-  // Obtener datos del usuario
   usuario := SSL_GETBYEMAIL(FUsuarioEmail);
 
-  // Agregar a la pila de Papelera
   if usuario.Papelera = nil then
     New(usuario.Papelera);
   Push(usuario.Papelera, nodo);
 
-  // Remover del DLL (Inbox)
   if nodo^.Prev <> nil then nodo^.Prev^.Next := nodo^.Next;
   if nodo^.Next <> nil then nodo^.Next^.Prev := nodo^.Prev;
   if nodo = FListaInbox^.Head then FListaInbox^.Head := nodo^.Next;
   if nodo = FListaInbox^.Last then FListaInbox^.Last := nodo^.Prev;
 
-  // No hacer Dispose, la pila mantiene la referencia
-
   CargarCorreos;
 end;
 
+procedure TfrmBandejaEntrada.btnFavoritosClick(Sender: TObject);
+var
+  usuario: TDataUser;
+  correoFav: TCorreoB;
+begin
+  if FCorreoActual = nil then
+  begin
+    ShowMessage('Seleccione un correo primero.');
+    Exit;
+  end;
+
+  usuario := SSL_GETBYEMAIL(FUsuarioEmail);
+
+  // llenar registro para el árbol B
+  correoFav.id := FCorreoActual^.id;
+  correoFav.remitente := FCorreoActual^.remitente;
+  correoFav.destinatario := FUsuarioEmail;
+  correoFav.asunto := FCorreoActual^.asunto;
+  correoFav.mensaje := FCorreoActual^.mensaje;
+  correoFav.fecha := FCorreoActual^.fecha;
+
+  if usuario.Favoritos = nil then
+    usuario.Favoritos := CrearBTree; // inicializar si no existe
+
+  InsertarBTree(usuario.Favoritos^.raiz, correoFav);
+
+  ShowMessage('Correo agregado a favoritos.');
+end;
 
 end.
+
 

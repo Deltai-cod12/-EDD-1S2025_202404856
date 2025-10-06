@@ -14,19 +14,21 @@ type
   TfrmVerContactos = class(TForm)
     btnSiguiente: TButton;
     btnAnterior: TButton;
+    btnEliminar: TButton;
     lblNombre: TLabel;
     lblUsuario: TLabel;
     lblEmail: TLabel;
     lblTelefono: TLabel;
     procedure btnSiguienteClick(Sender: TObject);
     procedure btnAnteriorClick(Sender: TObject);
+    procedure btnEliminarClick(Sender: TObject);
   private
     FContactoActual: PContactNode;
     FListaContactos: PContactList;
     procedure MostrarContacto;
   public
     UsuarioEmail: string;
-    procedure InicializarContactos;  // <<--- nuevo método
+    procedure InicializarContactos;
   end;
 
 var
@@ -93,12 +95,55 @@ begin
   end;
 
   // buscar el nodo anterior
-  while Actual^.Next <> FContactoActual do
-  begin
+  while (Actual^.Next <> FContactoActual) and (Actual^.Next <> nil) do
     Actual := Actual^.Next;
-    if Actual = FListaContactos^.Head then Break; // ciclo completo
-  end;
+
   FContactoActual := Actual;
+  MostrarContacto;
+end;
+
+procedure TfrmVerContactos.btnEliminarClick(Sender: TObject);
+var
+  Prev, Actual: PContactNode;
+begin
+  if (FListaContactos = nil) or (FContactoActual = nil) then
+  begin
+    ShowMessage('No hay contacto seleccionado para eliminar.');
+    Exit;
+  end;
+
+  Actual := FListaContactos^.Head;
+  Prev := nil;
+
+  // buscar el nodo actual en la lista
+  while (Actual <> nil) and (Actual <> FContactoActual) do
+  begin
+    Prev := Actual;
+    Actual := Actual^.Next;
+  end;
+
+  if Actual = nil then Exit; // no se encontró
+
+  // caso: es el primer nodo
+  if Prev = nil then
+    FListaContactos^.Head := Actual^.Next
+  else
+    Prev^.Next := Actual^.Next;
+
+  // mover el puntero actual:
+  if Actual^.Next <> nil then
+    FContactoActual := Actual^.Next // siguiente
+  else
+    FContactoActual := Prev; // último eliminado, retrocede al anterior
+
+  Dispose(Actual);
+
+  ShowMessage('Contacto eliminado.');
+
+  // si ya no quedan contactos
+  if (FListaContactos^.Head = nil) then
+    FContactoActual := nil;
+
   MostrarContacto;
 end;
 

@@ -6,24 +6,28 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  SLL, fpjson, jsonparser, uMatriz, Comunidades, uCrearComunidades, process;
+  SLL, fpjson, jsonparser, uMatriz, Comunidades, uCrearComunidades, process,
+  DLL_CON;
 
 type
   { TfrmAbrirMenuRoot }
   TfrmAbrirMenuRoot = class(TForm)
-    btnCargaMasiva: TButton;
+    btnCargaMasivaUsuarios: TButton;
+    btnCargaMasivaCorreos: TButton;
     btnReporteUsuarios: TButton;
     btnReporteRelaciones: TButton;
     btnCrearComunidades: TButton;
     btnGrafComunidades: TButton;
     OpenDialog1: TOpenDialog;
-    procedure btnCargaMasivaClick(Sender: TObject);
+    procedure btnCargaMasivaUsuariosClick(Sender: TObject);
+    procedure btnCargaMasivaCorreosClick(Sender: TObject);
     procedure btnReporteUsuariosClick(Sender: TObject);
     procedure btnReporteRelacionesClick(Sender: TObject);
     procedure btnCrearComunidadesClick(Sender: TObject);
   private
     MatrizRelaciones: PMatriz;
     procedure CargarUsuariosDesdeJSON(const FileName: string);
+    procedure CargarCorreosDesdeJSON(const FileName: string);
     procedure GenerarReporteUsuarios;
     procedure GenerarReporteRelaciones;
   public
@@ -40,14 +44,19 @@ implementation
 constructor TfrmAbrirMenuRoot.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
-  MatrizInit(MatrizRelaciones); // Inicializa la matriz de relaciones
+  MatrizInit(MatrizRelaciones); // inicializar matriz de relaciones
 end;
 
-
-procedure TfrmAbrirMenuRoot.btnCargaMasivaClick(Sender: TObject);
+procedure TfrmAbrirMenuRoot.btnCargaMasivaUsuariosClick(Sender: TObject);
 begin
   if OpenDialog1.Execute then
     CargarUsuariosDesdeJSON(OpenDialog1.FileName);
+end;
+
+procedure TfrmAbrirMenuRoot.btnCargaMasivaCorreosClick(Sender: TObject);
+begin
+  if OpenDialog1.Execute then
+    CargarCorreosDesdeJSON(OpenDialog1.FileName);
 end;
 
 procedure TfrmAbrirMenuRoot.btnReporteUsuariosClick(Sender: TObject);
@@ -67,6 +76,8 @@ begin
   frmCrearComunidades.Show;
   frmCrearComunidades.BringToFront;
 end;
+
+{ ====================== CARGA MASIVA DE USUARIOS ====================== }
 
 procedure TfrmAbrirMenuRoot.CargarUsuariosDesdeJSON(const FileName: string);
 var
@@ -123,28 +134,90 @@ begin
   end;
 end;
 
+{ ====================== CARGA MASIVA DE CORREOS ====================== }
+
+procedure TfrmAbrirMenuRoot.CargarCorreosDesdeJSON(const FileName: string);
+var
+  jsonData: TJSONData;
+  correosArray: TJSONArray;
+  i, contadorCorreos: Integer;
+  correoObj: TJSONObject;
+  sl: TStringList;
+  destinatario: TDataUser;
+begin
+  if not FileExists(FileName) then
+  begin
+    ShowMessage('El archivo no existe');
+    Exit;
+  end;
+
+  contadorCorreos := 0;
+  sl := TStringList.Create;
+  try
+    sl.LoadFromFile(FileName);
+    jsonData := GetJSON(sl.Text);
+    try
+      if jsonData.JSONType = jtObject then
+      begin
+        correosArray := TJSONArray((jsonData as TJSONObject).FindPath('correos'));
+        if correosArray = nil then
+        begin
+          ShowMessage('No se encontró el arreglo "correos" en el JSON');
+          Exit;
+        end;
+
+        for i := 0 to correosArray.Count - 1 do
+        begin
+          correoObj := correosArray.Objects[i];
+
+          // Buscar usuario destinatario
+          destinatario := SSL_GETBYEMAIL(correoObj.Get('destinatario', ''));
+          if destinatario.email = '' then
+            Continue; // si no existe, ignoramos el correo
+
+          // Insertar en la Inbox del destinatario
+          DLL_Insert(destinatario.Inbox,
+                     IntToStr(correoObj.Get('id', 0)),
+                     correoObj.Get('remitente', ''),
+                     correoObj.Get('asunto', ''),
+                     correoObj.Get('mensaje', ''),
+                     DateTimeToStr(Now)); // usamos fecha actual
+
+          Inc(contadorCorreos);
+        end;
+
+        ShowMessage('Correos cargados exitosamente: ' + IntToStr(contadorCorreos));
+      end
+      else
+        ShowMessage('Archivo JSON inválido');
+    finally
+      jsonData.Free;
+    end;
+  finally
+    sl.Free;
+  end;
+end;
+
+{ ====================== REPORTES ====================== }
+
 procedure TfrmAbrirMenuRoot.GenerarReporteUsuarios;
 var
   SL: TStringList;
   FilePathTXT, DotFile, PNGFile, DotContent: string;
 begin
-  // Crear carpeta Root-Reportes si no existe
   if not DirectoryExists('Root-Reportes') then
     ForceDirectories('Root-Reportes');
 
-  // Rutas de archivos
   FilePathTXT := 'Root-Reportes/ReporteUsuarios.txt';
   DotFile := 'Root-Reportes/Usuarios.dot';
   PNGFile := 'Root-Reportes/Usuarios.png';
 
-  // Guardar reporte en TXT
   SL := TStringList.Create;
   try
     SL.Add('REPORTE DE USUARIOS');
     SL.Add('------------------');
-    SSL_PRINT; // Imprimir en consola, opcional
+    SSL_PRINT;
 
-    // Agregar contenido del DOT al TXT para referencia
     DotContent := SSL_GENERATE_DOT;
     SL.Add(DotContent);
 
@@ -153,10 +226,8 @@ begin
     SL.Free;
   end;
 
-  // Generar PNG usando Graphviz
   GenerateDotUsuarios(DotFile, PNGFile);
 end;
-
 
 procedure TfrmAbrirMenuRoot.GenerarReporteRelaciones;
 var
@@ -179,4 +250,3 @@ begin
 end;
 
 end.
-

@@ -104,4 +104,12 @@ object frmBorradores: TfrmBorradores
     TabOrder = 8
     OnClick = btnEnviarTodosClick
   end
+  object btnReporte: TButton
+  Left = 400
+  Top = 320
+  Width = 150
+  Height = 30
+  Caption = 'Generar Reporte'
+  OnClick = btnReporteClick
+end
 end

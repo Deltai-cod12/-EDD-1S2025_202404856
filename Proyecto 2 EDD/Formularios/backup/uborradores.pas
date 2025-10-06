@@ -6,18 +6,17 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  SLL, UAVL, DLL_CON, UContactTypes;
+  SLL, UAVL, DLL_CON, UContactTypes, Process;
 
 type
-
   { TfrmBorradores }
-
   TfrmBorradores = class(TForm)
     btnPreOrden: TButton;
     btnInOrden: TButton;
     btnPostOrden: TButton;
     btnEnviarSeleccionado: TButton;
     btnEnviarTodos: TButton;
+    btnReporte: TButton;           // <-- nuevo botón
     lstBorradores: TListBox;
     edtAsunto: TEdit;
     edtDestinatario: TEdit;
@@ -32,12 +31,11 @@ type
     procedure lstBorradoresClick(Sender: TObject);
     procedure btnEnviarSeleccionadoClick(Sender: TObject);
     procedure btnEnviarTodosClick(Sender: TObject);
-
+    procedure btnReporteClick(Sender: TObject); // <-- handler
   private
     FUsuario: TDataUser;
     procedure MostrarRecorrido(orden: string);
     procedure CargarCorreoSeleccionado(const id: string);
-    // recorridos locales que trabajan con PNodoAVL
     procedure RecorrerPreOrden(nodo: PNodoAVL; list: TStringList);
     procedure RecorrerInOrden(nodo: PNodoAVL; list: TStringList);
     procedure RecorrerPostOrden(nodo: PNodoAVL; list: TStringList);
@@ -62,7 +60,6 @@ end;
 procedure TfrmBorradores.RecorrerPreOrden(nodo: PNodoAVL; list: TStringList);
 begin
   if nodo = nil then Exit;
-  // agregamos el id para la visualización (puedes cambiar a formato que prefieras)
   list.Add(nodo^.mail.id);
   RecorrerPreOrden(nodo^.izquierda, list);
   RecorrerPreOrden(nodo^.derecha, list);
@@ -100,8 +97,6 @@ begin
       else if orden = 'post' then
         RecorrerPostOrden(FUsuario.Drafts^.raiz, lista);
 
-      // Opcional: mostrar id + asunto en la lista en vez de solo id
-      // Aquí dejamos la lista con IDs para que al hacer click cargue por id.
       lstBorradores.Items.Assign(lista);
     end
     else
@@ -118,7 +113,7 @@ var
 begin
   if (FUsuario.Drafts = nil) or (FUsuario.Drafts^.raiz = nil) then Exit;
 
-  nodo := BuscarAVL(FUsuario.Drafts^.raiz, id); // devuelve PNodoAVL (o nil)
+  nodo := BuscarAVL(FUsuario.Drafts^.raiz, id);
   if nodo <> nil then
   begin
     correo := nodo^.mail;
@@ -127,9 +122,7 @@ begin
     memoMensaje.Text := correo.mensaje;
   end
   else
-  begin
     ShowMessage('No se encontró el borrador seleccionado.');
-  end;
 end;
 
 procedure TfrmBorradores.lstBorradoresClick(Sender: TObject);
@@ -172,7 +165,6 @@ begin
   end;
 
   idCorreo := lstBorradores.Items[lstBorradores.ItemIndex];
-
   nodo := BuscarAVL(FUsuario.Drafts^.raiz, idCorreo);
   if nodo = nil then
   begin
@@ -202,38 +194,42 @@ begin
              correo.mensaje,
              FormatDateTime('dd/mm/yyyy hh:nn:ss', Now));
 
-  FUsuario.Drafts^.raiz := EliminarAVL(FUsuario.Drafts^.raiz, correo.ID);
+  FUsuario.Drafts^.raiz := EliminarAVL(FUsuario.Drafts^.raiz, correo.id);
 
   ShowMessage('Correo enviado y eliminado de borradores.');
-  MostrarRecorrido('in'); // refresca lista
+  MostrarRecorrido('in');
 end;
 
 procedure TfrmBorradores.btnEnviarTodosClick(Sender: TObject);
 var
   enviados: TStringList;
 
-  procedure RecorrerYEnviar(nodo: PAVLNode);
+  procedure RecorrerYEnviar(nodo: PNodoAVL);
+  var
+    inboxDestinatario: PMsgList;
+    correo: TMail;
   begin
     if nodo = nil then Exit;
 
-    RecorrerYEnviar(nodo^.izq);
+    RecorrerYEnviar(nodo^.izquierda);
 
-    if nodo^.correo.Destinatario <> '' then
+    correo := nodo^.mail;
+    if Trim(correo.destinatario) <> '' then
     begin
-      var inboxDestinatario := SSL_GETBYEMAIL(nodo^.correo.Destinatario).Inbox;
+      inboxDestinatario := SSL_GETBYEMAIL(correo.destinatario).Inbox;
       if inboxDestinatario <> nil then
       begin
         DLL_Insert(inboxDestinatario,
-                   nodo^.correo.ID,
-                   nodo^.correo.Remitente,
-                   nodo^.correo.Asunto,
-                   nodo^.correo.Mensaje,
+                   correo.id,
+                   correo.remitente,
+                   correo.asunto,
+                   correo.mensaje,
                    FormatDateTime('dd/mm/yyyy hh:nn:ss', Now));
-        enviados.Add(nodo^.correo.ID); // guardar id para borrar después
+        enviados.Add(correo.id);
       end;
     end;
 
-    RecorrerYEnviar(nodo^.der);
+    RecorrerYEnviar(nodo^.derecha);
   end;
 
 var
@@ -248,8 +244,6 @@ begin
   enviados := TStringList.Create;
   try
     RecorrerYEnviar(FUsuario.Drafts^.raiz);
-
-    // eliminar después de recorrer
     for i := 0 to enviados.Count - 1 do
       FUsuario.Drafts^.raiz := EliminarAVL(FUsuario.Drafts^.raiz, enviados[i]);
   finally
@@ -257,8 +251,36 @@ begin
   end;
 
   ShowMessage('Todos los correos en borradores fueron enviados y eliminados.');
-  MostrarRecorrido('in'); // refresca lista
+  MostrarRecorrido('in');
+end;
+
+// ======================= NUEVO: GENERAR REPORTE =======================
+procedure TfrmBorradores.btnReporteClick(Sender: TObject);
+var
+  dotFile, pngFile: string;
+  Output: AnsiString;
+begin
+  if (FUsuario.Drafts = nil) or (FUsuario.Drafts^.raiz = nil) then
+  begin
+    ShowMessage('No hay borradores para graficar.');
+    Exit;
+  end;
+
+  if not DirectoryExists('Reportes') then
+    CreateDir('Reportes');
+
+  dotFile := 'Reportes/Borradores.dot';
+  pngFile := 'Reportes/Borradores.png';
+
+  GenerarDOTAVL(FUsuario.Drafts^.raiz, dotFile);
+
+  if FileExists('/usr/bin/dot') then
+  begin
+    RunCommand('/usr/bin/dot', ['-Tpng', dotFile, '-o', pngFile], Output);
+    ShowMessage('Reporte generado en: ' + pngFile);
+  end
+  else
+    ShowMessage('Graphviz no está instalado o no se encuentra el ejecutable "dot".');
 end;
 
 end.
-

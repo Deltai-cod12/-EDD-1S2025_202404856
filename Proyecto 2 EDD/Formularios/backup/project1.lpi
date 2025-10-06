@@ -187,18 +187,29 @@
       <Unit>
         <Filename Value="uborradores.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
+        <ComponentName Value="frmBorradores"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uBorradores"/>
       </Unit>
       <Unit>
-        <Filename Value="uborradores.pas"/>
+        <Filename Value="ufavoritos.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmBorradores"/>
-        <HasResources Value="True"/>
+        <ComponentName Value="Form1"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uBorradores"/>
+        <UnitName Value="uFavoritos"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Unidades/bstcomunidades.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="BSTCOMUNIDADES"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucrearcomunidadesarbol.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form4"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uCrearComunidadesArbol"/>
       </Unit>
     </Units>
   </ProjectOptions>

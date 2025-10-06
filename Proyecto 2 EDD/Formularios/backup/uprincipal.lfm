@@ -78,6 +78,14 @@ object frmPrincipal: TfrmPrincipal
     Caption = 'Papelera'
     OnClick = btnPapeleraClick
   end
+  object btnBorradores: TButton
+    Left = 404
+    Top = 120
+    Width = 120
+    Height = 30
+    Caption = 'Borradores'
+    OnClick = btnBorradoresClick
+  end
   object btnReportes: TButton
   Left = 20
   Top = 320

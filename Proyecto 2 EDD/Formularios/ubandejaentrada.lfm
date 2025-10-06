@@ -49,5 +49,15 @@ object frmBandejaEntrada: TfrmBandejaEntrada
     TabOrder = 3
     OnClick = btnEliminarClick
   end
+  object btnFavoritos: TButton
+  Left = 300
+  Top = 350
+  Width = 90
+  Height = 25
+  Caption = 'Favoritos'
+  TabOrder = 4
+  OnClick = btnFavoritosClick
+end
+
 end
 

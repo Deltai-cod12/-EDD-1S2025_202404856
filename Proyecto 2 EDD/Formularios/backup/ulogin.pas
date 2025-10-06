@@ -45,7 +45,7 @@ begin
   end;
 
   // Validación ROOT
-  if (user = 'root@edd.com') and (password = 'root123') then
+  if (email = 'root@edd.com') and (password = 'root123') then
   begin
     ShowMessage('Bienvenido ROOT');
     AbrirMenuRoot;

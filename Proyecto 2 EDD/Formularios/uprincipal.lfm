@@ -94,5 +94,14 @@ object frmPrincipal: TfrmPrincipal
   Caption = 'Reportes'
   OnClick = btnReportesClick
   end
+  object btnFavoritos: TButton
+  Left = 404
+  Top = 160
+  Width = 120
+  Height = 30
+  Caption = 'Favoritos'
+  OnClick = btnFavoritosClick
+end
+
 end
 

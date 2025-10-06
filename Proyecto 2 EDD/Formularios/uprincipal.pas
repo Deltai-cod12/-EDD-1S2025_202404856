@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
   uContactos, uVerContactos, uActualizarPerfil, uBandejaEntrada,
-  uEnviarCorreo, uProgramarCorreo, uCorreosProgramados, uPapelera, uReportes, uBorradores, SLL;
+  uEnviarCorreo, uProgramarCorreo, uCorreosProgramados, uPapelera, uReportes, uBorradores, uFavoritos, SLL;
 
 type
   { TfrmPrincipal }
@@ -23,6 +23,7 @@ type
     btnPapelera: TButton;
     btnReportes: TButton;
     btnBorradores: TButton;
+    btnFavoritos: TButton;
     lblUsuario: TLabel;
     procedure btnContactosClick(Sender: TObject);
     procedure btnVerContactosClick(Sender: TObject);
@@ -34,6 +35,7 @@ type
     procedure btnPapeleraClick(Sender: TObject);
     procedure btnReportesClick(Sender: TObject);
     procedure btnBorradoresClick(Sender: TObject);
+    procedure btnFavoritosClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   public
     UsuarioEmail: string; // Email del usuario actual
@@ -62,6 +64,7 @@ begin
   btnReportes.Caption := 'Reportes';
   btnPapelera.Caption := 'Papelera';
   btnBorradores.Caption := 'Borradores';
+  btnFavoritos.Caption := 'Favoritos';
 end;
 
 procedure TfrmPrincipal.btnContactosClick(Sender: TObject);
@@ -195,6 +198,17 @@ begin
     frmBorradores.ShowModal;
   finally
     frmBorradores.Free;
+  end;
+end;
+
+procedure TfrmPrincipal.btnFavoritosClick(Sender: TObject);
+begin
+  frmFavoritos := TfrmFavoritos.Create(Application);
+  try
+    frmFavoritos.SetUsuarioEmail(UsuarioEmail);
+    frmFavoritos.ShowModal;
+  finally
+    frmFavoritos.Free;
   end;
 end;
 

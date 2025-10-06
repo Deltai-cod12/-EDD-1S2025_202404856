@@ -1,1 +1,9 @@
-comunidades.png
+digraph Comunidades {
+  rankdir=TB;
+  node [fontname="Arial", style=filled, fillcolor=lightyellow];
+"Comunidad LGBT" [label="Comunidad: Comunidad LGBT\nFecha: 5-10-25\nMensajes: 1", shape=box, style=filled, fillcolor=lightgreen];
+"Comunidad LGBT" -> "Comunidad ";
+"Comunidad " [label="Comunidad: Comunidad \nFecha: 5-10-25\nMensajes: 1", shape=box, style=filled, fillcolor=lightgreen];
+"Comunidad LGBT" -> "Comunidad autista";
+"Comunidad autista" [label="Comunidad: Comunidad autista\nFecha: 5-10-25\nMensajes: 3", shape=box, style=filled, fillcolor=lightgreen];
+}

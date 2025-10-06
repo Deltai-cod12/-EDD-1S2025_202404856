@@ -6,7 +6,6 @@ object frmVerContactos: TfrmVerContactos
   Caption = 'Contactos'
   ClientHeight = 250
   ClientWidth = 400
-  OnCreate = FormCreate
   object lblNombre: TLabel
     Left = 20
     Top = 20

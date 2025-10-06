@@ -5,7 +5,7 @@ unit UBTree;
 interface
 
 uses
-  SysUtils;
+  Classes, SysUtils;
 
 const
   ORDEN = 5;
@@ -13,13 +13,14 @@ const
   MIN_CLAVES = ORDEN div 2 - 1; // 2
 
 type
-  // Registro para correos favoritos
+  // Registro para correos favoritos (tal como lo tenías)
   TMail = record
     id: string;
     remitente: string;
     destinatario: string;
     asunto: string;
     mensaje: string;
+    // fecha: TDateTime; // si quieres fecha, agrégala aquí y ajústalo en uFavoritos
   end;
 
   // Nodo del Árbol B
@@ -42,7 +43,10 @@ function CrearBTree: PBTree;
 procedure InsertarB(var raiz: PNodoB; correo: TMail);
 function BuscarB(nodo: PNodoB; id: string): TMail;
 procedure InOrdenB(nodo: PNodoB);
+procedure InOrdenBLista(nodo: PNodoB; lista: TStrings); // <-- agregado
 procedure GenerarDOTB(raiz: PNodoB; const nombreArchivo: String);
+
+procedure EliminarBTree(var raiz: PNodoB; const id: string); // <-- agregado
 
 implementation
 
@@ -73,7 +77,7 @@ begin
 end;
 
 // =============================================================
-// Buscar
+// Buscar (devuelve TMail; si no existe, devuelve registro con id = '')
 // =============================================================
 
 function BuscarB(nodo: PNodoB; id: string): TMail;
@@ -165,6 +169,9 @@ begin
       Dec(i);
     Inc(i);
 
+    if nodo^.hijos[i] = nil then
+      nodo^.hijos[i] := CrearNodoB(True);
+
     if nodo^.hijos[i]^.n = MAX_CLAVES then
     begin
       DividirHijo(nodo, i, nodo^.hijos[i]);
@@ -206,7 +213,7 @@ begin
 end;
 
 // =============================================================
-// Recorrido in-orden
+// Recorrido in-orden (ruta de consola) - lo mantengo
 // =============================================================
 
 procedure InOrdenB(nodo: PNodoB);
@@ -223,6 +230,103 @@ begin
     end;
     if not nodo^.esHoja then
       InOrdenB(nodo^.hijos[nodo^.n]);
+  end;
+end;
+
+// =============================================================
+// Nuevo: Recorrido in-orden que llena un TStrings (para el grid)
+// =============================================================
+procedure InOrdenBLista(nodo: PNodoB; lista: TStrings);
+var
+  i: Integer;
+begin
+  if (nodo = nil) or (lista = nil) then Exit;
+
+  for i := 0 to nodo^.n - 1 do
+  begin
+    if not nodo^.esHoja then
+      InOrdenBLista(nodo^.hijos[i], lista);
+
+    // formato: ID|Asunto|Remitente
+    lista.Add(nodo^.valores[i].id + '|' + nodo^.valores[i].asunto + '|' + nodo^.valores[i].remitente);
+  end;
+
+  if not nodo^.esHoja then
+    InOrdenBLista(nodo^.hijos[nodo^.n], lista);
+end;
+
+// =============================================================
+// Eliminar (versión simplificada: elimina claves si están en hojas)
+// =============================================================
+
+procedure EliminarEnNodo(var nodo: PNodoB; const id: string);
+var
+  i, j: Integer;
+begin
+  if nodo = nil then Exit;
+
+  // buscar posición
+  i := 0;
+  while (i < nodo^.n) and (id > nodo^.claves[i]) do Inc(i);
+
+  if (i < nodo^.n) and (id = nodo^.claves[i]) then
+  begin
+    // encontrado en este nodo
+    if nodo^.esHoja then
+    begin
+      // eliminar la entrada i (shift left)
+      for j := i to nodo^.n - 2 do
+      begin
+        nodo^.claves[j] := nodo^.claves[j+1];
+        nodo^.valores[j] := nodo^.valores[j+1];
+      end;
+      Dec(nodo^.n);
+      Exit;
+    end
+    else
+    begin
+      // si está en nodo interno: versión simplificada -> intentar eliminar en subárbol derecho
+      // (una implementación completa requiere reemplazos y reequilibrio)
+      EliminarEnNodo(nodo^.hijos[i+1], id);
+      Exit;
+    end;
+  end
+  else
+  begin
+    // no está en este nodo: bajar al hijo correspondiente si existe
+    if nodo^.esHoja then
+      Exit
+    else
+    begin
+      if nodo^.hijos[i] <> nil then
+        EliminarEnNodo(nodo^.hijos[i], id);
+    end;
+  end;
+end;
+
+procedure EliminarBTree(var raiz: PNodoB; const id: string);
+var
+  tmp: PNodoB;
+begin
+  if raiz = nil then Exit;
+
+  EliminarEnNodo(raiz, id);
+
+  // si la raiz quedó vacía (n = 0) y tiene hijos, promovemos el hijo 0 como nueva raíz
+  if (raiz <> nil) and (raiz^.n = 0) then
+  begin
+    if raiz^.esHoja then
+    begin
+      Dispose(raiz);
+      raiz := nil;
+    end
+    else
+    begin
+      tmp := raiz;
+      raiz := raiz^.hijos[0];
+      // opcional: liberar tmp (sin liberar sus hijos)
+      Dispose(tmp);
+    end;
   end;
 end;
 

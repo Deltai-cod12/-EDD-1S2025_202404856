@@ -56,5 +56,14 @@ object frmVerContactos: TfrmVerContactos
     Font.Size = 12
     OnClick = btnSiguienteClick
   end
+  object btnEliminar: TButton
+  Left = 140
+  Top = 210
+  Width = 120
+  Height = 40
+  Caption = 'Eliminar'
+  Font.Size = 12
+  OnClick = btnEliminarClick
+end
 end
 
