@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21" Y="13"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="ulogin.pas"/>
@@ -21,7 +21,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="31"/>
         <CursorPos X="48" Y="47"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/sll.pas"/>
@@ -29,7 +29,7 @@
         <UnitName Value="SLL"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="45" Y="6"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/dll_con.pas"/>
@@ -37,7 +37,7 @@
         <UnitName Value="DLL_CON"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="93" Y="104"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/ucontacttypes.pas"/>
@@ -45,7 +45,7 @@
         <UnitName Value="UContactTypes"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="5" Y="17"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/upila.pas"/>
@@ -54,7 +54,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="8"/>
         <CursorPos X="103" Y="86"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/ucola.pas"/>
@@ -62,7 +62,7 @@
         <UnitName Value="UCola"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="5" Y="117"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/umatriz.pas"/>
@@ -71,7 +71,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="40"/>
         <CursorPos X="28" Y="61"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="uregister.pas"/>
@@ -82,7 +82,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="12"/>
         <CursorPos X="24" Y="66"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="uabrirmenuroot.pas"/>
@@ -93,7 +93,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="218"/>
         <CursorPos X="5" Y="257"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="uprincipal.pas"/>
@@ -105,7 +105,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="176"/>
         <CursorPos X="29" Y="196"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="ucontactos.pas"/>
@@ -115,19 +115,18 @@
         <UnitName Value="uContactos"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="69" Y="66"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="uvercontactos.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmVerContactos"/>
-        <HasResources Value="True"/>
+        <ComponentName Value="Form6"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uVerContactos"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="50"/>
         <CursorPos Y="70"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="uactualizarperfil.pas"/>
@@ -137,7 +136,7 @@
         <UnitName Value="uActualizarPerfil"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21" Y="12"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="ubandejaentrada.pas"/>
@@ -149,7 +148,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="114"/>
         <CursorPos X="26" Y="181"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit>
       <Unit>
         <Filename Value="uenviarcorreo.pas"/>
@@ -161,7 +160,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="84"/>
         <CursorPos Y="123"/>
-        <UsageCount Value="59"/>
+        <UsageCount Value="60"/>
       </Unit>
       <Unit>
         <Filename Value="uprogramarcorreo.pas"/>
@@ -172,7 +171,7 @@
         <UnitName Value="uProgramarCorreo"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="13" Y="143"/>
-        <UsageCount Value="58"/>
+        <UsageCount Value="59"/>
       </Unit>
       <Unit>
         <Filename Value="ucorreosprogramados.pas"/>
@@ -182,7 +181,7 @@
         <UnitName Value="uCorreosProgramados"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="50" Y="53"/>
-        <UsageCount Value="58"/>
+        <UsageCount Value="59"/>
       </Unit>
       <Unit>
         <Filename Value="upapelera.pas"/>
@@ -193,7 +192,7 @@
         <UnitName Value="uPapelera"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="16" Y="99"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="58"/>
       </Unit>
       <Unit>
         <Filename Value="ureportes.pas"/>
@@ -205,7 +204,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="98"/>
         <CursorPos X="12" Y="12"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/comunidades.pas"/>
@@ -213,7 +212,7 @@
         <UnitName Value="Comunidades"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21" Y="12"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="47"/>
       </Unit>
       <Unit>
         <Filename Value="ucrearcomunidades.pas"/>
@@ -225,7 +224,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="43"/>
         <CursorPos X="102" Y="76"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="47"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/uavl.pas"/>
@@ -234,7 +233,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="304"/>
         <CursorPos X="39" Y="310"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="38"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/ubtree.pas"/>
@@ -242,7 +241,7 @@
         <UnitName Value="UBTree"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="25" Y="8"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="33"/>
       </Unit>
       <Unit>
         <Filename Value="uborradores.pas"/>
@@ -254,7 +253,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="37"/>
         <CursorPos X="35" Y="57"/>
-        <UsageCount Value="30"/>
+        <UsageCount Value="31"/>
       </Unit>
       <Unit>
         <Filename Value="ufavoritos.pas"/>
@@ -265,7 +264,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="159"/>
         <CursorPos X="14" Y="177"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="30"/>
       </Unit>
       <Unit>
         <Filename Value="../Unidades/bstcomunidades.pas"/>
@@ -274,7 +273,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="235"/>
         <CursorPos X="17" Y="260"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="25"/>
       </Unit>
       <Unit>
         <Filename Value="ucrearcomunidadesarbol.pas"/>
@@ -283,9 +282,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uCrearComunidadesArbol"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="95"/>
+        <TopLine Value="63"/>
         <CursorPos X="19" Y="96"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -437,7 +436,7 @@
       <Unit>
         <Filename Value="../../../../usuarios.json"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="31" Y="24"/>
+        <CursorPos X="30" Y="7"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit>
