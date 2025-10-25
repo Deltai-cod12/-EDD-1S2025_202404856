@@ -1,0 +1,4 @@
+digraph ArbolB {
+  node [shape=record, style=filled, fillcolor=lightblue];
+  nodo1 [label="|7:Proyecto GNU", shape=record];
+}

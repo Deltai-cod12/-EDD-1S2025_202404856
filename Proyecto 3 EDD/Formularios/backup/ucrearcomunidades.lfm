@@ -1,0 +1,83 @@
+object frmCrearComunidades: TfrmCrearComunidades
+  Left = 300
+  Top = 200
+  Width = 400
+  Height = 300
+  Caption = 'Crear Comunidades'
+  ClientHeight = 300
+  ClientWidth = 400
+  LCLVersion = '2.2.4.0'
+  object lblTitulo: TLabel
+    Left = 130
+    Top = 10
+    Width = 150
+    Height = 25
+    Caption = 'COMUNIDADES'
+    Font.Size = 14
+    Font.Style = [fsBold]
+  end
+  object lblNombre: TLabel
+    Left = 20
+    Top = 50
+    Width = 100
+    Height = 20
+    Caption = 'Nombre Comunidad:'
+  end
+  object txtNombre: TEdit
+    Left = 150
+    Top = 50
+    Width = 200
+    Height = 25
+  end
+  object btnCrear: TButton
+    Left = 150
+    Top = 85
+    Width = 100
+    Height = 30
+    Caption = 'Crear'
+    OnClick = btnCrearClick
+  end
+  object lblComunidad: TLabel
+    Left = 20
+    Top = 130
+    Width = 100
+    Height = 20
+    Caption = 'Comunidad:'
+  end
+  object txtComunidad: TEdit
+    Left = 150
+    Top = 130
+    Width = 200
+    Height = 25
+  end
+  object lblCorreo: TLabel
+    Left = 20
+    Top = 165
+    Width = 100
+    Height = 20
+    Caption = 'Correo Usuario:'
+  end
+  object txtCorreo: TEdit
+    Left = 150
+    Top = 165
+    Width = 200
+    Height = 25
+  end
+  object btnAgregar: TButton
+    Left = 150
+    Top = 200
+    Width = 100
+    Height = 30
+    Caption = 'Agregar'
+    OnClick = btnAgregarClick
+  end
+  object btnCerrar: TButton
+    Left = 150
+    Top = 240
+    Width = 100
+    Height = 30
+    Caption = 'Cerrar'
+    OnClick = btnCerrarClick
+  end
+end
+

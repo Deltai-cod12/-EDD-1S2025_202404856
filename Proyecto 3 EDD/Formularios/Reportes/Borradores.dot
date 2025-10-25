@@ -1,0 +1,6 @@
+digraph AVL {
+  node [shape=record, style=filled, fillcolor=lightblue];
+  "20251011163557805" [label="ID:20251011163557805\nAsunto:BORRADOR 1"];
+  "20251011163557805" -> "20251011165626096";
+  "20251011165626096" [label="ID:20251011165626096\nAsunto:5"];
+}

@@ -1,0 +1,150 @@
+object frmCrearComunidadesArbol: TfrmCrearComunidadesArbol
+  Left = 200
+  Top = 150
+  Width = 600
+  Height = 400
+  Caption = 'Gestión de Comunidades (BST)'
+  ClientWidth = 600
+  ClientHeight = 400
+  LCLVersion = '2.2.4.0'
+
+  object lblTitulo: TLabel
+    Left = 200
+    Top = 10
+    Width = 250
+    Height = 25
+    Caption = 'Gestión de Comunidades con Árbol BST'
+    Font.Size = 12
+  end
+
+  object lblNombre: TLabel
+    Left = 20
+    Top = 50
+    Width = 150
+    Height = 20
+    Caption = 'Nombre Comunidad:'
+  end
+
+  object txtNombre: TEdit
+    Left = 180
+    Top = 50
+    Width = 200
+    Height = 24
+    TabOrder = 0
+  end
+
+  object lblComunidad: TLabel
+    Left = 20
+    Top = 90
+    Width = 150
+    Height = 20
+    Caption = 'Comunidad:'
+  end
+
+  object txtComunidad: TEdit
+    Left = 180
+    Top = 90
+    Width = 200
+    Height = 24
+    TabOrder = 1
+  end
+
+  object lblCorreo: TLabel
+    Left = 20
+    Top = 130
+    Width = 150
+    Height = 20
+    Caption = 'Correo Usuario:'
+  end
+
+  object txtCorreo: TEdit
+    Left = 180
+    Top = 130
+    Width = 200
+    Height = 24
+    TabOrder = 2
+  end
+
+  object lblMensaje: TLabel
+    Left = 20
+    Top = 170
+    Width = 150
+    Height = 20
+    Caption = 'Mensaje:'
+  end
+
+  object txtMensaje: TEdit
+    Left = 180
+    Top = 170
+    Width = 380
+    Height = 24
+    TabOrder = 3
+  end
+
+  object lblFecha: TLabel
+    Left = 20
+    Top = 210
+    Width = 150
+    Height = 20
+    Caption = 'Fecha:'
+  end
+
+  object txtFecha: TEdit
+    Left = 180
+    Top = 210
+    Width = 200
+    Height = 24
+    TabOrder = 4
+  end
+
+  object btnCrear: TButton
+    Left = 420
+    Top = 50
+    Width = 140
+    Height = 30
+    Caption = 'Crear Comunidad'
+    TabOrder = 5
+    OnClick = btnCrearClick
+  end
+
+  object btnAgregar: TButton
+    Left = 420
+    Top = 90
+    Width = 140
+    Height = 30
+    Caption = 'Agregar Usuario'
+    TabOrder = 6
+    OnClick = btnAgregarClick
+  end
+
+  object btnInsertarMsg: TButton
+    Left = 420
+    Top = 130
+    Width = 140
+    Height = 30
+    Caption = 'Insertar Mensaje'
+    TabOrder = 7
+    OnClick = btnInsertarMsgClick
+  end
+
+  object btnReporte: TButton
+    Left = 420
+    Top = 210
+    Width = 140
+    Height = 30
+    Caption = 'Generar Reporte'
+    TabOrder = 8
+    OnClick = btnReporteClick
+  end
+
+  object btnCerrar: TButton
+    Left = 250
+    Top = 300
+    Width = 100
+    Height = 30
+    Caption = 'Cerrar'
+    TabOrder = 9
+    OnClick = btnCerrarClick
+  end
+end
+

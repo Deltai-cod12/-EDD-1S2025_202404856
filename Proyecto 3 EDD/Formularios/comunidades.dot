@@ -1,0 +1,26 @@
+digraph Comunidades {
+  rankdir=LR;
+  nodesep=0.5;
+  edge[arrowhead=normal];
+  node [shape=box, style=filled, fillcolor=lightblue];
+
+  comunidad0 [label="memes", fillcolor=lightgreen];
+  comunidad0 -> comunidad1;
+  comunidad0 -> usuario0_0;
+  usuario0_0 [label="lgarcia@edd.com"];
+  usuario0_0 -> usuario0_1;
+  usuario0_1 [label="mitzep@edd.com"];
+{rank=same; comunidad0
+ usuario0_0
+ usuario0_1
+ }
+  comunidad1 [label="peliculas", fillcolor=lightgreen];
+  comunidad1 -> usuario1_0;
+  usuario1_0 [label="mitzep@edd.com"];
+  usuario1_0 -> usuario1_1;
+  usuario1_1 [label="mshuttleworth@edd.com"];
+{rank=same; comunidad1
+ usuario1_0
+ usuario1_1
+ }
+}

@@ -1,0 +1,99 @@
+object frmRegister: TfrmRegister
+  Left = 250
+  Top = 120
+  Width = 450
+  Height = 400
+  Caption = 'Registro de Usuario'
+  object lblID: TLabel
+    Left = 30
+    Top = 30
+    Caption = 'ID:'
+  end
+  object edtID: TEdit
+    Left = 150
+    Top = 30
+    Width = 200
+    Height = 24
+    TabOrder = 0
+  end
+  object lblNombre: TLabel
+    Left = 30
+    Top = 70
+    Caption = 'Nombre:'
+  end
+  object edtNombre: TEdit
+    Left = 150
+    Top = 70
+    Width = 200
+    Height = 24
+    TabOrder = 1
+  end
+  object lblEmail: TLabel
+    Left = 30
+    Top = 110
+    Caption = 'Email:'
+  end
+  object edtEmail: TEdit
+    Left = 150
+    Top = 110
+    Width = 200
+    Height = 24
+    TabOrder = 2
+  end
+  object lblUsuario: TLabel
+    Left = 30
+    Top = 150
+    Caption = 'Usuario:'
+  end
+  object edtUsuario: TEdit
+    Left = 150
+    Top = 150
+    Width = 200
+    Height = 24
+    TabOrder = 3
+  end
+  object lblTelefono: TLabel
+    Left = 30
+    Top = 190
+    Caption = 'Teléfono:'
+  end
+  object edtTelefono: TEdit
+    Left = 150
+    Top = 190
+    Width = 200
+    Height = 24
+    TabOrder = 4
+  end
+  object lblPassword: TLabel
+    Left = 30
+    Top = 230
+    Caption = 'Contraseña:'
+  end
+  object edtPassword: TEdit
+    Left = 150
+    Top = 230
+    Width = 200
+    Height = 24
+    PasswordChar = '*'
+    TabOrder = 5
+  end
+  object btnRegistrar: TButton
+    Left = 100
+    Top = 300
+    Width = 100
+    Height = 30
+    Caption = 'Registrar'
+    TabOrder = 6
+    OnClick = btnRegistrarClick
+  end
+  object btnCancelar: TButton
+    Left = 220
+    Top = 300
+    Width = 100
+    Height = 30
+    Caption = 'Cancelar'
+    TabOrder = 7
+    OnClick = btnCancelarClick
+  end
+end
+

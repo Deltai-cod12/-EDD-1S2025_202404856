@@ -1,0 +1,63 @@
+object frmBandejaEntrada: TfrmBandejaEntrada
+  Left = 0
+  Top = 0
+  Width = 600
+  Height = 400
+  Caption = 'Bandeja de Entrada'
+  OnCreate = FormCreate
+  ClientHeight = 400
+  ClientWidth = 600
+  LCLVersion = '2.2.4.0'
+  object lvCorreos: TListView
+    Left = 8
+    Top = 8
+    Width = 584
+    Height = 250
+    TabOrder = 0
+    ViewStyle = vsReport
+    OnSelectItem = lvCorreosSelectItem
+  end
+  object memoMensaje: TMemo
+    Left = 8
+    Top = 265
+    Width = 584
+    Height = 80
+    TabOrder = 1
+  end
+  object lblNoLeidos: TLabel
+    Left = 8
+    Top = 350
+    Width = 150
+    Height = 25
+    Caption = 'No Leídos: 0'
+  end
+  object btnOrdenar: TButton
+    Left = 400
+    Top = 350
+    Width = 90
+    Height = 25
+    Caption = 'Ordenar A-Z'
+    TabOrder = 2
+    OnClick = btnOrdenarClick
+  end
+  object btnEliminar: TButton
+    Left = 500
+    Top = 350
+    Width = 90
+    Height = 25
+    Caption = 'Eliminar'
+    TabOrder = 3
+    OnClick = btnEliminarClick
+  end
+  object btnFavoritos: TButton
+  Left = 300
+  Top = 350
+  Width = 90
+  Height = 25
+  Caption = 'Favoritos'
+  TabOrder = 4
+  OnClick = btnFavoritosClick
+end
+
+end
+
